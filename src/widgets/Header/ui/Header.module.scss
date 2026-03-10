@@ -7,9 +7,16 @@
   left: 0;
   width: 100%;
   z-index: 100;
+  backdrop-filter: blur(4px);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   background-color: color.adjust($primary-background-color, $alpha: -0.1);
+
+  @include tablet {
+    background-color: transparent;
+    backdrop-filter: none;
+    border-radius: 0;
+  }
 }
 
 .container {

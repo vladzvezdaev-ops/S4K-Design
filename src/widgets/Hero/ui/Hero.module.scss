@@ -1,0 +1,151 @@
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/variables" as *;
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  font-family: $font-main;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("/HeroMobile.png");
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35vh;
+
+    background: linear-gradient(
+      to top,
+      $primary-background-color 0%,
+      rgba($primary-background-color, 0.8) 25%,
+      rgba($primary-background-color, 0) 100%
+    );
+
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 22px 60px 22px;
+
+    @include tablet {
+      height: 100vh;
+    }
+  }
+
+  @include tablet {
+    background-image: url("/HeadHero.png");
+
+    .container {
+      justify-content: space-between;
+      padding: 110px 60px 150px 60px;
+    }
+  }
+
+  @include laptop {
+    .container {
+      padding: 110px 60px 80px 60px;
+    }
+  }
+}
+
+.title {
+  align-self: flex-start;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  color: $fourth-white-color;
+  @include text-h1;
+  font-weight: $fw-black;
+  gap: 20px;
+  width: 100%;
+
+  .titleTop {
+    align-self: flex-start;
+    white-space: nowrap;
+    font-size: 40px;
+    @include tablet {
+      font-size: 80px;
+    }
+    @include laptop {
+      font-size: 110px;
+    }
+    @include desktop {
+      font-size: 130px;
+    }
+  }
+
+  .titleBottom {
+    align-self: flex-start;
+    white-space: nowrap;
+    font-size: 40px;
+    @include tablet {
+      font-size: 80px;
+    }
+    @include laptop {
+      font-size: 110px;
+    }
+    @include desktop {
+      font-size: 130px;
+    }
+  }
+
+  @include tablet {
+    height: 65%;
+    justify-content: space-between;
+    gap: 0;
+
+    .titleTop {
+      align-self: flex-end;
+      text-align: right;
+    }
+
+    .titleBottom {
+      align-self: flex-start;
+      text-align: left;
+      max-width: 60%;
+    }
+  }
+
+  @include laptop {
+    height: 63%;
+  }
+
+  @include desktop {
+    height: 66%;
+  }
+}
+
+.btnWrapper {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  bottom: 150px;
+  right: 30px;
+  margin-top: 0;
+  margin-bottom: 50px;
+  z-index: 10;
+
+  @include tablet {
+    position: absolute;
+    bottom: 120px;
+    right: 60px;
+    margin-top: 0;
+    z-index: 10;
+  }
+
+  @include laptop {
+    right: 60px;
+  }
+}
