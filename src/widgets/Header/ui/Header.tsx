@@ -1,0 +1,146 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import styles from "./Header.module.scss";
+import { Modal } from "@/shared/ui/Modal/Modal";
+import { useState } from "react";
+import { Button } from "@/shared/ui/Button/Button";
+import { BurgerIcon } from "@/shared/ui/Icon/BurgerIcon";
+import { BurgerModalIcon } from "@/shared/ui/Icon/BurgerModalIcon";
+
+export const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleServices = () => setIsServicesOpen(!isServicesOpen);
+
+  return (
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <div className={styles.logoWrapper}>
+          <Link href="/" className={styles.logo}>
+            <Image
+              src="/icon.svg"
+              alt="SK4 Design Logo"
+              width={72}
+              height={23}
+              priority
+            />
+          </Link>
+        </div>
+
+        <div className={styles.navWrapper}>
+          <Button href="/Launch">Launch project</Button>
+          <nav className={styles.nav}>
+            <Link href="/About">About me</Link>
+            <div className={styles.desktopDropdown}>
+              <Link href="/Services" className={styles.desktopDropdownTrigger}>
+                Services
+              </Link>
+
+              <div className={styles.desktopDropdownMenu}>
+                <Link href="/Services/UX-UI">UX/UI Design</Link>
+                <Link href="/Services/Branding">Brand Identity design</Link>
+              </div>
+            </div>
+            <Link href="/Portfolio">Portfolio</Link>
+            <Link href="/Process">Process</Link>
+            <Link href="/contact">Contact</Link>
+          </nav>
+        </div>
+        <button onClick={toggleMenu} className={styles.burgerBtn} type="button">
+          <BurgerIcon />
+        </button>
+      </div>
+      <Modal isOpen={isOpen} onClose={toggleMenu}>
+        <div className={styles.menuHeader}>
+          <Image
+            src="/burgerLogo.svg"
+            alt="Logo"
+            width={72}
+            height={23}
+            className={styles.logoBurger}
+          />
+          <button
+            onClick={toggleMenu}
+            className={styles.closeBtn}
+            type="button"
+          >
+            <BurgerModalIcon />
+          </button>
+        </div>
+
+        <nav className={styles.mobileNav}>
+          <Link
+            href="/About"
+            onClick={toggleMenu}
+            className={styles.mobileLink}
+          >
+            About me
+          </Link>
+
+          <div className={styles.accordion}>
+            <button
+              onClick={toggleServices}
+              className={styles.mobileLink}
+              type="button"
+            >
+              Services
+              <Image
+                src="/arrow.svg"
+                alt="arrow"
+                width={24}
+                height={24}
+                className={`${styles.arrowIcon} ${isServicesOpen ? styles.arrowActive : ""}`}
+              />
+            </button>
+
+            <div
+              className={`${styles.accordionContent} ${isServicesOpen ? styles.active : ""}`}
+            >
+              <div className={styles.subLinksWrapper}>
+                <Link
+                  href="/Services/UX-UI"
+                  onClick={toggleMenu}
+                  className={styles.subLink1}
+                >
+                  UX/UI Design
+                </Link>
+                <Link
+                  href="/Services/Branding"
+                  onClick={toggleMenu}
+                  className={styles.subLink2}
+                >
+                  Brand Identity design
+                </Link>
+              </div>
+            </div>
+          </div>
+          <Link
+            href="/Portfolio"
+            onClick={toggleMenu}
+            className={styles.mobileLink}
+          >
+            Portfolio
+          </Link>
+          <Link
+            href="/Process"
+            onClick={toggleMenu}
+            className={styles.mobileLink}
+          >
+            Process
+          </Link>
+          <Link
+            href="/contact"
+            onClick={toggleMenu}
+            className={styles.mobileLink}
+          >
+            Contact
+          </Link>
+        </nav>
+      </Modal>
+    </header>
+  );
+};

@@ -1,0 +1,60 @@
+@use "variables" as *;
+
+// Breakpoints
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1024px;
+$breakpoint-desktop: 1440px;
+
+@mixin tablet {
+  @media screen and (min-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (min-width: #{$breakpoint-laptop}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@mixin media-to($width) {
+  @media screen and (max-width: #{$width}) {
+    @content;
+  }
+}
+
+// Fonts
+
+// H1
+@mixin text-h1 {
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: $fw-black;
+}
+
+// H2
+@mixin text-h2 {
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: $fw-black;
+}
+
+// H3
+@mixin text-h3 {
+  font-size: 20px;
+  font-weight: $fw-medium;
+}
+
+// Classic
+@mixin text-main {
+  font-size: 18px;
+  font-weight: $fw-regular;
+}

@@ -1,0 +1,104 @@
+@use "@/shared/styles" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  gap: 25px;
+
+  @include tablet {
+    flex-direction: row;
+    padding: 80px 100px 150px 80px;
+    gap: 60px;
+  }
+
+  @include laptop {
+    padding: 100px 120px 300px 120px;
+    gap: 100px;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+
+  @include tablet {
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  white-space: nowrap;
+  gap: 8px;
+
+  @include text-main;
+
+  @include tablet {
+    gap: 10px;
+  }
+
+  a,
+  span,
+  .navItem {
+    display: inline-block;
+    transition:
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.3s ease;
+    will-change: transform;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05) translateX(5px);
+
+      color: #ffffff;
+    }
+  }
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.contactItem {
+  display: flex;
+  gap: 30px;
+
+  @include text-main;
+}
+
+.socials {
+  display: flex;
+  gap: 25px;
+
+  @include tablet {
+    gap: 100px;
+    padding-left: 10px;
+  }
+}
+
+.columnNav {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  @include text-main;
+
+  @include tablet {
+  }
+}
+
+.title {
+  white-space: nowrap;
+  @include text-h3;
+
+  @include tablet {
+    @include text-h2;
+  }
+}

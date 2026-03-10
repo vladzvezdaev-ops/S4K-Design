@@ -1,0 +1,41 @@
+@use "@/shared/styles" as *;
+
+.btn {
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 24px;
+  border-radius: 38px;
+  border: 1px solid transparent;
+
+  @include text-main;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.launch {
+  color: #ffffff;
+  background:
+    linear-gradient(to right, #ff4e2f, #ffb71b) padding-box,
+    linear-gradient(to right, #9c230d, #f45e00, #ffb53f) border-box;
+
+  &:hover {
+    color: #000000;
+    background:
+      linear-gradient(to right, #ffffff, #ffb71b) padding-box,
+      linear-gradient(to right, #ffffff, #ffb53f) border-box;
+
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(#ff4e2f, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

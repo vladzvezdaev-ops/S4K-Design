@@ -1,0 +1,38 @@
+@use "@/shared/styles" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: $primary-background-color;
+  color: $fourth-white-color;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+main {
+  padding-top: 90.5px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}

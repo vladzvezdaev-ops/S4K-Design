@@ -1,0 +1,30 @@
+.iconWrapper {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  color: #000000;
+  transition: all 0.3s ease;
+
+  .svgIcon {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background-color: #000000;
+    color: #ffffff;
+
+    .svgIcon {
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

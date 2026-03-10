@@ -1,0 +1,224 @@
+@use "sass:color";
+@use "@/shared/styles" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: color.adjust($primary-background-color, $alpha: -0.1);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 22px 13px 22px;
+
+  @include tablet {
+    padding: 40px 30px 20px 30px;
+  }
+
+  @include laptop {
+    padding: 60px 60px 20px 60px;
+  }
+}
+
+.nav {
+  gap: 27px;
+  display: flex;
+  padding: 8px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  background:
+    linear-gradient($primary-background-color, $primary-background-color)
+      padding-box,
+    linear-gradient(to right, #bdbdbd, #666666, #000000) border-box;
+}
+
+.navWrapper {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    gap: 17px;
+  }
+
+  @include text-main;
+}
+
+.burgerBtn {
+  display: block;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+
+  @include tablet {
+    display: none;
+  }
+
+  img {
+    transition: filter 0.3s ease;
+  }
+
+  &:hover img {
+    filter: invert(1);
+  }
+}
+
+.launchBtn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background:
+    linear-gradient($secondary-orange-color, $secondary-orange-color)
+      padding-box,
+    linear-gradient(to right, #ffb53f, #f45e00, #9c230d) border-box;
+}
+
+.logoWrapper {
+  padding-top: 8px;
+}
+
+.closeBtn {
+  background: transparent;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.menuHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logoBurger {
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.accordionContent {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition:
+    grid-template-rows 0.3s ease,
+    opacity 0.3s ease,
+    visibility 0.3s;
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+
+  &.active {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.subLink1 {
+  padding-top: 50px;
+}
+
+.subLinksWrapper {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+  padding-top: 85px;
+}
+
+.mobileLink {
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  align-items: center;
+  width: 100%;
+
+  @include text-main;
+}
+
+.arrowIcon {
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.arrowActive {
+  transform: rotate(180deg);
+}
+
+.desktopDropdown {
+  position: relative;
+  display: inline-block;
+
+  &:hover .desktopDropdownMenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+}
+
+.desktopDropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+
+  background: #111111;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 220px;
+  z-index: 50;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+  }
+
+  a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 16px;
+    color: $fourth-white-color;
+    border-radius: 8px;
+    transition:
+      0.3s ease,
+      transform 0.3s ease,
+      color 0.3s ease;
+
+    &:hover {
+      background: $primary-background-color;
+      transform: translateX(5px);
+      color: $secondary-orange-color;
+    }
+  }
+}
