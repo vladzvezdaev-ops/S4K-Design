@@ -62,7 +62,7 @@
   }
 
   @media (orientation: landscape) and (max-height: 500px) {
-    padding: 60px 22px 100px 22px;
+    padding: 40px 22px 40px 22px;
   }
 
   @include laptop {
@@ -162,7 +162,7 @@
     z-index: 10;
 
     @media (orientation: landscape) and (max-height: 500px) {
-      bottom: 65px;
+      bottom: 50px;
     }
   }
 
