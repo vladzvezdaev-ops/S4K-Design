@@ -1,4 +1,6 @@
-import { Button } from "@/shared/ui/Button/Button"; // Перевір шлях до своєї кнопки
+"use client";
+
+import { Button } from "@/shared/ui/Button/Button";
 import styles from "./Hero.module.scss";
 
 export const Hero = () => {

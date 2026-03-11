@@ -11,30 +11,33 @@ interface ModalProps {
 
 export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const [shouldRender, setShouldRender] = useState(isOpen);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const dialog = dialogRef.current;
-    if (!dialog) return;
+    if (!dialog || !mounted) return;
 
     if (isOpen) {
-      setShouldRender(true);
       if (!dialog.open) dialog.showModal();
       document.body.style.overflow = "hidden";
     } else {
       const timer = setTimeout(() => {
         if (dialog.open) dialog.close();
-        setShouldRender(false);
         document.body.style.overflow = "unset";
       }, 400);
-
       return () => clearTimeout(timer);
     }
-  }, [isOpen]);
+  }, [isOpen, mounted]);
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === dialogRef.current) onClose();
   };
+
+  if (!mounted || !isOpen) return null;
 
   return createPortal(
     <dialog
