@@ -13,7 +13,11 @@
   overflow: hidden;
 
   @media (orientation: landscape) and (max-height: 500px) {
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
     min-height: 120vh;
+    width: 100vw;
   }
 
   &::after {
@@ -92,6 +96,10 @@
     @include desktop {
       font-size: 130px;
     }
+
+    @media (orientation: landscape) and (max-height: 500px) {
+      transform: translateY(-90px);
+    }
   }
 
   .titleBottom {
@@ -145,16 +153,16 @@
   margin-bottom: 50px;
   z-index: 10;
 
-  @media (orientation: landscape) and (max-height: 500px) {
-    bottom: 20px;
-  }
-
   @include tablet {
     position: absolute;
     bottom: 120px;
     right: 60px;
     margin-top: 0;
     z-index: 10;
+
+    @media (orientation: landscape) and (max-height: 500px) {
+      bottom: 65px;
+    }
   }
 
   @include laptop {
