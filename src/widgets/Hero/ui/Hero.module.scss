@@ -14,10 +14,11 @@
 
   @media (orientation: landscape) and (max-height: 500px) {
     background-attachment: scroll;
-    background-position: center;
+    background-position: center center;
     background-size: cover;
-    min-height: 120vh;
-    width: 100vw;
+    min-height: 100vh;
+    min-height: 100svh;
+    width: 100%;
   }
 
   &::after {
