@@ -1,5 +1,7 @@
 import { Project } from "../../model/types";
-import styles from "./ProjectCars.module.scss";
+import styles from "./ProjectCard.module.scss";
+import Link from "next/link";
+import Image from "next/image";
 
 interface ProjectCardProps {
   project: Project;
@@ -7,16 +9,22 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ project, className }: ProjectCardProps) => {
-  const { title, category, imageUrl } = project;
+  const { imageUrl, link = "#" } = project;
 
   return (
     <article className={`${styles.card} ${className || ""}`}>
       <div className={styles.imageWrapper}>
-        <img src={imageUrl} alt={title} className={styles.image} />
-      </div>
-      <div className={styles.info}>
-        <p className={styles.category}>{category}</p>
-        <h3 className={styles.title}>{title}</h3>
+        <img src={imageUrl} className={styles.image} alt="Project" />
+
+        <Link href={link} className={styles.linkButton}>
+          <Image
+            src="/burgerBtnClose.svg"
+            alt="Link Icon"
+            width={40}
+            height={40}
+            className={styles.button}
+          />
+        </Link>
       </div>
     </article>
   );

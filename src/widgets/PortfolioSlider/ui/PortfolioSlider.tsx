@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+
 import { ProjectCard, type Project } from "@/entities/project";
 
 import "swiper/css";
@@ -27,31 +28,38 @@ export const PortfolioSlider = ({ projects }: PortfolioSliderProps) => {
 
         <Swiper
           modules={[Navigation]}
-          spaceBetween={30}
           slidesPerView={1}
+          centeredSlides={true}
+          spaceBetween={20}
           navigation={{
             nextEl: ".swiper-button-next-custom",
             prevEl: ".swiper-button-prev-custom",
           }}
           onInit={() => setInit(true)}
           breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+              centeredSlides: false,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 40,
+              centeredSlides: false,
+            },
           }}
           loop={true}
           className={styles.slider}
         >
           {projects.map((project) => (
-            <SwiperSlide key={project.id}>
+            <SwiperSlide key={project.id} className={styles.slide}>
               <ProjectCard project={project} />
             </SwiperSlide>
           ))}
         </Swiper>
 
         <div className={styles.navigation}>
-          <button
-            className={`${styles.buttonIconRight} swiper-button-prev-custom`}
-          >
+          <button className={`${styles.buttonIcon} swiper-button-prev-custom`}>
             <Image
               src="/arrow.svg"
               alt="arrow"
@@ -60,9 +68,8 @@ export const PortfolioSlider = ({ projects }: PortfolioSliderProps) => {
               className={styles.arrowIconLeft}
             />
           </button>
-          <button
-            className={`${styles.buttonIconRight} swiper-button-next-custom`}
-          >
+
+          <button className={`${styles.buttonIcon} swiper-button-next-custom`}>
             <Image
               src="/arrow.svg"
               alt="arrow"
