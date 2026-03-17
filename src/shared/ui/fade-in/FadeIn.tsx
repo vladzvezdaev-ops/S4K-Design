@@ -17,7 +17,7 @@ export const FadeIn: FC<FadeInProps> = ({
   className = "",
   delay = 0,
   duration = 0.6,
-  yOffset = 50,
+  yOffset = 30,
   once = true,
 }) => {
   return (
