@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Header } from "@/widgets/Header";
 import { Footer } from "@/widgets/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.scss";
 
@@ -42,6 +43,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
