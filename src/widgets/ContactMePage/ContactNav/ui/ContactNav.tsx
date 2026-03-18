@@ -5,31 +5,35 @@ import Link from "next/link";
 import { LinkedIn } from "@/shared/ui/Icon/Network/LinkedIn";
 import { Inst } from "@/shared/ui/Icon/Network/Inst";
 import styles from "./ContactNav.module.scss";
+import { BurgerIcon } from "@/shared/ui/Icon/BurgerIcon";
 
 export const ContactNav: React.FC = () => {
   return (
     <section className={styles.ContactNav}>
       <div className={styles.navSection}>
         <div className={styles.contactItems}>
-          
           <a href="mailto:slialina.design@gmail.com" className={styles.item}>
             <span>slialina.design@gmail.com</span>
             <div className={styles.arrowBtn}>
-              <Image src="/burgerBtn.svg" alt="arrow" width={40} height={40} />
+              <BurgerIcon />
             </div>
           </a>
 
           <a href="tel:+48517365658" className={styles.item}>
             <span>+(48) 517-365-658</span>
             <div className={styles.arrowBtn}>
-              <Image src="/burgerBtn.svg" alt="arrow" width={40} height={40} />
+              <BurgerIcon />{" "}
             </div>
           </a>
         </div>
 
         <div className={styles.socials}>
-          <Link href="#" className={styles.socialIcon}><Inst /></Link>
-          <Link href="#" className={styles.socialIcon}><LinkedIn /></Link>
+          <Link href="#" className={styles.socialIcon}>
+            <Inst />
+          </Link>
+          <Link href="#" className={styles.socialIcon}>
+            <LinkedIn />
+          </Link>
         </div>
       </div>
 

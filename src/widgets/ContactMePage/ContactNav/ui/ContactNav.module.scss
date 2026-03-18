@@ -44,26 +44,37 @@
 .item {
   display: flex;
   align-items: center;
-  text-align: center;
   justify-content: space-between;
   text-decoration: none;
   color: $fourth-white-color;
   padding: 0 30px;
   font-size: 20px;
   font-weight: 500;
-  transition: opacity 0.3s ease;
+  transition: color 0.3s ease;
 
   &:hover {
-    opacity: 0.7;
+    color: #ffffff;
+
     .arrowBtn {
-      transform: rotate(45deg);
+      transform: rotate(360deg);
     }
   }
 }
 
 .arrowBtn {
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  img,
+  svg {
+    width: 40px;
+    height: 40px;
+    transition: filter 0.3s ease;
+  }
 }
 
 .socials {
@@ -77,6 +88,13 @@
   }
 }
 
+.socialIcon {
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
 .imgSection {
   display: none;
 
@@ -85,7 +103,6 @@
     flex: 1;
     position: relative;
     min-height: 400px;
-    display: flex;
     justify-content: flex-end;
   }
 }
