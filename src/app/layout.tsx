@@ -5,7 +5,7 @@ import { Footer } from "@/widgets/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.scss";
-import { FadeIn } from "@/shared/ui/fade-in/FadeIn";
+import { PageLoader } from "@/shared/ui/PageLoader/ui/PageLoader";
 
 const satoshi = localFont({
   src: [
@@ -41,6 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={satoshi.variable}>
       <body className={`${satoshi.variable} antialiased`}>
+        <PageLoader />
         <Header />
         <main>{children}</main>
         <Footer />
