@@ -100,5 +100,6 @@
 
   @include tablet {
     @include text-h2;
+    font-weight: 500;
   }
 }

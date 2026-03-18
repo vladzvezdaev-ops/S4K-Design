@@ -1,6 +1,8 @@
 import { FadeIn } from "@/shared/ui/fade-in/FadeIn";
 import { AboutMe } from "@/widgets/AboutMe";
+import { DiscountSection } from "@/widgets/DiscountSection";
 import { Hero } from "@/widgets/Hero";
+import { MyInstagram } from "@/widgets/MyInstagram";
 export const dynamic = "force-dynamic";
 import { PortfolioSlider } from "@/widgets/PortfolioSlider";
 
@@ -57,6 +59,12 @@ export default async function Home() {
       </FadeIn>
       <FadeIn once={false}>
         <AboutMe />
+      </FadeIn>
+      <FadeIn once={false}>
+        <MyInstagram />
+      </FadeIn>
+      <FadeIn once={false}>
+        <DiscountSection />
       </FadeIn>
     </main>
   );

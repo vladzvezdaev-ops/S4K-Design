@@ -5,6 +5,7 @@ import { Footer } from "@/widgets/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.scss";
+import { FadeIn } from "@/shared/ui/fade-in/FadeIn";
 
 const satoshi = localFont({
   src: [

@@ -1,0 +1,70 @@
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/variables" as *;
+
+.MyInstagram {
+  padding: 120px 20px;
+  background-color: $primary-background-color;
+
+  @include tablet {
+    padding: 120px 30px;
+  }
+}
+
+.title {
+  font-size: 32px;
+  @include text-h2;
+  font-weight: 500;
+}
+
+.imgWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 140px 0 170px 0;
+
+  @include tablet {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 50px 0;
+  }
+}
+
+.imgItem {
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  &:nth-child(even) {
+    transform: translateY(120px);
+  }
+
+  @include tablet {
+    &:nth-child(even) {
+      transform: translateY(0);
+    }
+
+    &:nth-child(odd) {
+      padding-bottom: 100px;
+      padding-top: 0;
+    }
+
+    &:nth-child(even) {
+      padding-top: 100px;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.instImage {
+  display: flex;
+  justify-content: flex-end;
+
+  @include tablet {
+    display: none;
+  }
+}
