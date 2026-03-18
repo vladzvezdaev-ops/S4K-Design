@@ -1,0 +1,103 @@
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/variables" as *;
+
+.ContactNav {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: $primary-background-color;
+
+  @include tablet {
+    flex-direction: row;
+    align-items: center;
+    padding: 30px 20px;
+  }
+
+  @include laptop {
+    flex-direction: row;
+    align-items: center;
+    padding: 85px 90px;
+  }
+}
+
+.navSection {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include tablet {
+    padding: 0;
+  }
+}
+
+.contactItems {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include tablet {
+    gap: 55px;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: $fourth-white-color;
+  padding: 0 30px;
+  font-size: 20px;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+    .arrowBtn {
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.arrowBtn {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.socials {
+  display: flex;
+  padding-left: 20px;
+  gap: 40px;
+  margin-top: 20px;
+
+  @include tablet {
+    margin-top: 60px;
+  }
+}
+
+.imgSection {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    flex: 1;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 455px;
+  aspect-ratio: 455 / 489;
+
+  .photo {
+    object-fit: cover;
+    filter: brightness(0.9);
+  }
+}
