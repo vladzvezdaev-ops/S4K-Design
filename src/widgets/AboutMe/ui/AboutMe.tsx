@@ -33,14 +33,43 @@ export const AboutMe: React.FC<AboutMeProps> = ({
             <div>
               <ul className={styles.textListTop}>
                 <li>
-                  <Image
-                    src="/AboutMeSVGleft.svg"
-                    alt="Decoration"
-                    width={40}
-                    height={40}
-                    className={styles.arrowIconLeft}
-                  />
+                  <svg
+                    className={styles.animatedSvg}
+                    viewBox="0 0 37 34"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      className={styles.line1}
+                      d="M5 4.5V29.5"
+                      stroke="#FF0000"
+                      strokeWidth="4"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      className={styles.line2}
+                      d="M14 4.5V29.5"
+                      stroke="#FF0000"
+                      strokeWidth="4"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      className={styles.line3}
+                      d="M23 4.5V29.5"
+                      stroke="#FF0000"
+                      strokeWidth="4"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      className={styles.line4}
+                      d="M32 4.5V29.5"
+                      stroke="#FF0000"
+                      strokeWidth="4"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </li>
+
                 {skills.map((skill, index) => (
                   <li key={index}>
                     <p>{skill}</p>
