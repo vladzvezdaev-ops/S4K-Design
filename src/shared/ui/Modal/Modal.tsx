@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import styles from "./Modal.module.scss";
@@ -15,6 +16,9 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
 
   useEffect(() => {
     setMounted(true);
+    return () => {
+      document.body.style.overflow = "unset";
+    };
   }, []);
 
   useEffect(() => {
@@ -22,22 +26,30 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
     if (!dialog || !mounted) return;
 
     if (isOpen) {
-      if (!dialog.open) dialog.showModal();
+      if (!dialog.open) {
+        dialog.showModal();
+      }
       document.body.style.overflow = "hidden";
     } else {
+      document.body.style.overflow = "unset";
+
       const timer = setTimeout(() => {
-        if (dialog.open) dialog.close();
-        document.body.style.overflow = "unset";
+        if (dialog.open) {
+          dialog.close();
+        }
       }, 400);
+
       return () => clearTimeout(timer);
     }
   }, [isOpen, mounted]);
 
   const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === dialogRef.current) onClose();
+    if (e.target === dialogRef.current) {
+      onClose();
+    }
   };
 
-  if (!mounted || !isOpen) return null;
+  if (!mounted) return null;
 
   return createPortal(
     <dialog
@@ -49,7 +61,9 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
       }}
       onClick={handleBackdropClick}
     >
-      <div className={styles.content}>{children}</div>
+      <div className={styles.content} onClick={(e) => e.stopPropagation()}>
+        {children}
+      </div>
     </dialog>,
     document.body,
   );
