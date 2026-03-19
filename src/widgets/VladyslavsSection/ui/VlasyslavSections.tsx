@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./VlasyslavSections.module.scss";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -15,8 +15,7 @@ const CARDS = [
   {
     id: 2,
     title: "Skills",
-    content:
-      "React, Next.js, Framer Motion, UI/UX Engineering, Sanity, TypeScript, Vercel.",
+    content: "React, Next.js, Framer Motion, UI/UX Engineering, Sanity, TypeScript, Vercel.",
     x: 400,
     y: 150,
   },
@@ -48,7 +47,6 @@ export const VladyslavSections = () => {
       maxRadius: number;
       speed: number;
     }[] = [];
-    const spacing = 30;
 
     class Particle {
       x: number;
@@ -67,9 +65,11 @@ export const VladyslavSections = () => {
 
       draw() {
         if (!ctx) return;
+        const isMobile = window.innerWidth < 768;
+        const radius = isMobile ? 0.7 : 1.3;
         ctx.fillStyle = "rgba(0, 255, 204, 0.45)";
         ctx.beginPath();
-        ctx.arc(this.x, this.y, 1.3, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, radius, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -80,12 +80,8 @@ export const VladyslavSections = () => {
           const distance = Math.sqrt(dx * dx + dy * dy);
           const waveThickness = 70;
 
-          if (
-            distance < wave.radius &&
-            distance > wave.radius - waveThickness
-          ) {
-            const force =
-              (waveThickness - (wave.radius - distance)) / waveThickness;
+          if (distance < wave.radius && distance > wave.radius - waveThickness) {
+            const force = (waveThickness - (wave.radius - distance)) / waveThickness;
             const angle = Math.atan2(dy, dx);
             this.vx -= Math.cos(angle) * force * 14;
             this.vy -= Math.sin(angle) * force * 14;
@@ -107,6 +103,7 @@ export const VladyslavSections = () => {
       canvas.width = w;
       canvas.height = h;
 
+      const spacing = w < 768 ? 20 : 30;
       particles = [];
       for (let y = -spacing; y < h + spacing; y += spacing) {
         for (let x = -spacing; x < w + spacing; x += spacing) {
@@ -178,7 +175,7 @@ export const VladyslavSections = () => {
           drag
           dragConstraints={constraintsRef}
           dragMomentum={true}
-          dragTransition={{ bounceStiffness: 100, bounceDamping: 10 }} // М'якість відскоку
+          dragTransition={{ bounceStiffness: 100, bounceDamping: 10 }}
           dragElastic={0.2}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -195,21 +192,33 @@ export const VladyslavSections = () => {
           <p>{card.content}</p>
         </motion.div>
       ))}
-      <div className={styles.socials}>
-        <a
-          href="https://github.com/vladzvezdaev-ops"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GITHUB
-        </a>
-        <a
-          href="https://www.linkedin.com/in/vladyslav-zvezdaiev-900295388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LINKEDIN
-        </a>
+
+      <div className={styles.socialsWrapper}>
+        <div className={styles.socialsContainer}>
+          <a
+            href="https://github.com/vladzvezdaev-ops"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            <span className={styles.linkEnergy}>
+              <div className={styles.energyCore}></div>
+            </span>
+            GITHUB
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/vladyslav-zvezdaiev-900295388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            <span className={styles.linkEnergy}>
+              <div className={styles.energyCore}></div>
+            </span>
+            LINKEDIN
+          </a>
+        </div>
       </div>
     </section>
   );

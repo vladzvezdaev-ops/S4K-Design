@@ -6,6 +6,7 @@
   overflow: hidden;
   margin: 0;
   padding: 0;
+  touch-action: none;
 }
 
 .canvas {
@@ -86,7 +87,6 @@
   z-index: 5;
   backdrop-filter: blur(12px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-
   margin: 0;
   transform: none;
 
@@ -114,26 +114,164 @@
   }
 }
 
-.socials {
+.socialsWrapper {
   position: absolute;
   bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  width: 100%;
   display: flex;
-  gap: 50px;
+  justify-content: center;
   z-index: 10;
+}
 
-  a {
-    color: rgba(255, 255, 255, 0.3);
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 5px;
-    transition: all 0.3s ease;
+.socialsContainer {
+  display: flex;
+  gap: 60px;
+}
 
-    &:hover {
-      color: #00ffcc;
-      text-shadow: 0 0 15px #00ffcc;
-      transform: translateY(-2px);
+@keyframes energyIn {
+  0% {
+    transform: translate(-50%, 45px) scale(1.5);
+    opacity: 0;
+    filter: blur(8px);
+  }
+  20% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 1;
+    filter: blur(4px);
+  }
+  100% {
+    transform: translate(-50%, -10px) scale(0.1);
+    opacity: 0;
+    filter: blur(2px);
+  }
+}
+
+.socialLink {
+  position: relative;
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  transition: all 0.3s ease;
+  padding: 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+
+  &:hover {
+    color: #00ffcc;
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+
+    .linkEnergy div,
+    .linkEnergy::before,
+    .linkEnergy::after {
+      background: #fff;
+      box-shadow: 0 0 25px #00ffcc;
+    }
+  }
+}
+
+.linkEnergy {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+
+  div {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    background: #00ffcc;
+    border-radius: 50%;
+    opacity: 0;
+  }
+
+  .energyCore {
+    width: 14px;
+    height: 14px;
+    filter: blur(6px);
+    animation: energyIn 2s infinite ease-in;
+    animation-delay: 0.2s;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    background: #00ffcc;
+    border-radius: 50%;
+    opacity: 0;
+    animation: energyIn 2.5s infinite ease-out;
+  }
+
+  &::before {
+    width: 20px;
+    height: 20px;
+    filter: blur(12px);
+    animation-delay: 0s;
+    margin-left: -5px;
+  }
+
+  &::after {
+    width: 10px;
+    height: 10px;
+    filter: blur(4px);
+    animation-delay: 1.2s;
+    margin-left: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .homeBtn {
+    top: 20px;
+    left: 20px;
+    padding: 10px 16px;
+    font-size: 9px;
+  }
+
+  .card {
+    width: 200px;
+    padding: 20px;
+    h3 {
+      font-size: 17px;
+    }
+    p {
+      font-size: 13px;
+    }
+  }
+
+  .socialsContainer {
+    gap: 30px;
+  }
+
+  .socialLink {
+    min-width: 90px;
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .linkEnergy {
+    .energyCore {
+      width: 8px;
+      height: 8px;
+      filter: blur(4px);
+    }
+    &::before {
+      width: 12px;
+      height: 12px;
+      filter: blur(8px);
+    }
+    &::after {
+      width: 6px;
+      height: 6px;
+      filter: blur(3px);
     }
   }
 }

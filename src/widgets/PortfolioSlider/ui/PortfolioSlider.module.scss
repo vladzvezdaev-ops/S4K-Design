@@ -24,6 +24,10 @@
   font-weight: 500;
   color: #fff;
   text-transform: uppercase;
+
+  @include laptop {
+    font-size: 72px;
+  }
 }
 
 .navigation {

@@ -65,7 +65,7 @@ export const Footer = () => {
             </div>
           </div>
           <div className={styles.signature}>
-            Product by
+            Developed by
             <TransitionOverlay href="/vladyslav-zvezdaiev">
               <span className={styles.name} data-text="Vladyslav Zvezdaiev">
                 Vladyslav Zvezdaiev
