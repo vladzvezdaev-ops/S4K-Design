@@ -22,6 +22,9 @@
 .container {
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1440px;
+
   padding: 40px 22px 13px 22px;
 
   @include tablet {

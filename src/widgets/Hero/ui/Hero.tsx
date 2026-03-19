@@ -13,7 +13,7 @@ export const Hero = () => {
         </h1>
 
         <div className={styles.btnWrapper}>
-          <Button href="/Launch" className={styles.launchBtnHero}>
+          <Button href="/contact" className={styles.launchBtnHero}>
             Launch project
           </Button>
         </div>

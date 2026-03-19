@@ -2,7 +2,7 @@ import styles from "./BurgerModalIcon.module.scss";
 
 export const BurgerModalIcon = () => {
   return (
-    <button className={styles.iconWrapper} type="button">
+    <div className={styles.iconWrapper}>
       <svg
         width="24"
         height="24"
@@ -16,6 +16,6 @@ export const BurgerModalIcon = () => {
           fill="currentColor"
         />
       </svg>
-    </button>
+    </div>
   );
 };

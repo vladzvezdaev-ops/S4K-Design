@@ -26,7 +26,7 @@ export const DiscountSection: React.FC<DiscountSectionProps> = () => {
           competitive landscape, I move straight to implementation.
         </p>
         <div className={styles.btnContainer}>
-          <Button className={styles.launchBtn} href="/Launch">
+          <Button className={styles.launchBtn} href="/contact">
             Launch project
           </Button>
         </div>

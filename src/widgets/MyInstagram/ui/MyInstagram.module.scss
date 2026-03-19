@@ -4,6 +4,7 @@
 .MyInstagram {
   padding: 120px 20px;
   background-color: $primary-background-color;
+  margin: 0 auto;
 
   @include tablet {
     padding: 120px 30px;

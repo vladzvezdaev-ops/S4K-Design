@@ -28,10 +28,16 @@ export const ContactNav: React.FC = () => {
         </div>
 
         <div className={styles.socials}>
-          <Link href="#" className={styles.socialIcon}>
+          <Link
+            href="https://www.instagram.com/s4k.design?igsh=MWtqOWJ1MmY0cGxmMg="
+            className={styles.socialIcon}
+          >
             <Inst />
           </Link>
-          <Link href="#" className={styles.socialIcon}>
+          <Link
+            href="https://www.linkedin.com/in/sofiia-lialina-25120a298?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+            className={styles.socialIcon}
+          >
             <LinkedIn />
           </Link>
         </div>
@@ -40,7 +46,7 @@ export const ContactNav: React.FC = () => {
       <div className={styles.imgSection}>
         <div className={styles.imageWrapper}>
           <Image
-            src="/ContactMePhoto.png"
+            src="/HeroMobile.png"
             alt="Contact Me"
             fill
             className={styles.photo}

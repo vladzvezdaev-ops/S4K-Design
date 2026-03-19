@@ -32,7 +32,7 @@ export const Header = () => {
         </div>
 
         <div className={styles.navWrapper}>
-          <Button href="/Launch">Launch project</Button>
+          <Button href="/contact">Launch project</Button>
           <nav className={styles.nav}>
             <Link href="/About">About me</Link>
             <div className={styles.desktopDropdown}>
