@@ -2,6 +2,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   background: #000;
   overflow: hidden;
   margin: 0;
@@ -116,7 +117,7 @@
 
 .socialsWrapper {
   position: absolute;
-  bottom: 40px;
+  bottom: 60px;
   left: 0;
   width: 100%;
   display: flex;
@@ -229,6 +230,10 @@
 }
 
 @media (max-width: 768px) {
+  .socialsWrapper {
+    bottom: 100px;
+  }
+
   .homeBtn {
     top: 20px;
     left: 20px;
@@ -236,8 +241,14 @@
     font-size: 9px;
   }
 
+  .content {
+    .subtitle {
+      font-size: clamp(28px, 8vw, 42px);
+    }
+  }
+
   .card {
-    width: 200px;
+    width: 190px;
     padding: 20px;
     h3 {
       font-size: 17px;
@@ -273,5 +284,18 @@
       height: 6px;
       filter: blur(3px);
     }
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .socialsWrapper {
+    bottom: 20px;
+  }
+  .content {
+    transform: translateY(-20px) scale(0.8);
+  }
+  .homeBtn {
+    top: 15px;
+    padding: 8px 12px;
   }
 }
