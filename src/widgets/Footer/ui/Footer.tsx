@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./Footer.module.scss";
 import { LinkedIn } from "@/shared/ui/Icon/Network/LinkedIn";
+import { TransitionOverlay } from "@/shared/ui/TransitionOverlay/TransitionOverlay";
 import { Inst } from "@/shared/ui/Icon/Network/Inst";
 import { FadeIn } from "@/shared/ui/fade-in/FadeIn";
 
@@ -62,6 +63,14 @@ export const Footer = () => {
                 <LinkedIn />
               </Link>
             </div>
+          </div>
+          <div className={styles.signature}>
+            Product by
+            <TransitionOverlay href="/vladyslav-zvezdaiev">
+              <span className={styles.name} data-text="Vladyslav Zvezdaiev">
+                Vladyslav Zvezdaiev
+              </span>
+            </TransitionOverlay>
           </div>
         </div>
       </footer>

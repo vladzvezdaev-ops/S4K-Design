@@ -3,9 +3,11 @@ import localFont from "next/font/local";
 import { Header } from "@/widgets/Header";
 import { Footer } from "@/widgets/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { PageLoader } from "@/shared/ui/PageLoader/ui/PageLoader";
+
+import { LayoutWrapper } from "./LoyoutWrapper";
 
 import "./globals.scss";
-import { PageLoader } from "@/shared/ui/PageLoader/ui/PageLoader";
 
 const satoshi = localFont({
   src: [
@@ -42,9 +44,9 @@ export default function RootLayout({
     <html lang="en" className={satoshi.variable}>
       <body className={`${satoshi.variable} antialiased`}>
         <PageLoader />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+
+        <LayoutWrapper>{children}</LayoutWrapper>
+
         <SpeedInsights />
       </body>
     </html>

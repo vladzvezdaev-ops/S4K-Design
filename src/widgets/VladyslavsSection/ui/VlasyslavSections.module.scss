@@ -1,0 +1,134 @@
+.wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+}
+
+.centerContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.content {
+  text-align: center;
+
+  .title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 14px;
+    letter-spacing: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 12px;
+    padding-left: 12px;
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(32px, 6vw, 68px);
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 35px rgba(0, 255, 204, 0.5);
+    margin: 0;
+    line-height: 1;
+  }
+}
+
+.homeBtn {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 10;
+  text-decoration: none;
+  color: #fff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  padding: 12px 24px;
+  border: 1px solid rgba(0, 255, 204, 0.3);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &:hover {
+    background: #00ffcc;
+    color: #000;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.7);
+    transform: translateY(-2px);
+  }
+}
+
+.card {
+  position: absolute;
+  width: 240px;
+  padding: 28px;
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid rgba(0, 255, 204, 0.15);
+  cursor: grab;
+  z-index: 5;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  h3 {
+    font-family: "Space Grotesk", sans-serif;
+    color: #00ffcc;
+    font-size: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+
+  p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+  }
+
+  .cardGlow {
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 20px rgba(0, 255, 204, 0.05);
+    pointer-events: none;
+  }
+}
+
+.socials {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 50px;
+  z-index: 10;
+
+  a {
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 5px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #00ffcc;
+      text-shadow: 0 0 15px #00ffcc;
+      transform: translateY(-2px);
+    }
+  }
+}
