@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Header } from "@/widgets/Header";
-import { Footer } from "@/widgets/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { PageLoader } from "@/shared/ui/PageLoader/ui/PageLoader";
-
 import { LayoutWrapper } from "./LoyoutWrapper";
 
 import "./globals.scss";
@@ -31,7 +28,7 @@ const satoshi = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "SK4 Design",
+  title: "S4K Design",
   description: "Portfolio of a professional digital designer",
 };
 
@@ -41,8 +38,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={satoshi.variable}>
-      <body className={`${satoshi.variable} antialiased`}>
+    <html lang="en" className={satoshi.variable} suppressHydrationWarning>
+      <body className="antialiased">
         <PageLoader />
 
         <LayoutWrapper>{children}</LayoutWrapper>
