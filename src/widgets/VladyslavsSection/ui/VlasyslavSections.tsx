@@ -177,17 +177,24 @@ export const VladyslavSections = () => {
           key={card.id}
           drag
           dragConstraints={constraintsRef}
-          initial={{ x: card.x, y: card.y, opacity: 0 }}
+          dragMomentum={true}
+          dragTransition={{ bounceStiffness: 100, bounceDamping: 10 }} // М'якість відскоку
+          dragElastic={0.2}
+          initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          whileDrag={{ scale: 1.05, zIndex: 10, cursor: "grabbing" }}
+          whileDrag={{ scale: 1.05, zIndex: 50, cursor: "grabbing" }}
           className={styles.card}
+          style={{
+            left: card.x,
+            top: card.y,
+            position: "absolute",
+          }}
         >
           <div className={styles.cardGlow} />
           <h3>{card.title}</h3>
           <p>{card.content}</p>
         </motion.div>
       ))}
-
       <div className={styles.socials}>
         <a
           href="https://github.com/vladzvezdaev-ops"
