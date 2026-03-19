@@ -9,23 +9,23 @@ const CARDS = [
     id: 1,
     title: "Projects",
     content: "Explore my digital universe and latest design works.",
-    x: -350,
-    y: -120,
+    x: 100,
+    y: 200,
   },
   {
     id: 2,
     title: "Skills",
     content:
       "React, Next.js, Framer Motion, UI/UX Engineering, Sanity, TypeScript, Vercel.",
-    x: 350,
-    y: -80,
+    x: 400,
+    y: 150,
   },
   {
     id: 3,
     title: "Contact",
     content: "Available for interesting high-end collaborations.",
-    x: -250,
-    y: 180,
+    x: 250,
+    y: 500,
   },
 ];
 
