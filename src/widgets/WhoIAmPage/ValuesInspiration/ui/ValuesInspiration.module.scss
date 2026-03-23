@@ -15,18 +15,22 @@
   }
 }
 
+.titleTop {
+  font-weight: 500;
+}
+
 .titleMiddle {
   text-align: center;
-  font-weight: medium;
+  font-weight: 500;
 }
 
 .titleBottom {
   text-align: end;
-  font-weight: medium;
+  font-weight: 500;
 }
 
 .tabletTitle {
-  font-weight: medium;
+  font-weight: 500;
   display: none;
   white-space: nowrap;
 
@@ -42,11 +46,11 @@
 
 .titleContainer {
   display: flex;
-  font-weight: medium;
   flex-direction: column;
 
   gap: 20px;
   @include text-h2;
+  font-weight: 500;
   font-size: 32px;
 
   @include tablet {
