@@ -17,13 +17,16 @@
 
 .titleMiddle {
   text-align: center;
+  font-weight: medium;
 }
 
 .titleBottom {
   text-align: end;
+  font-weight: medium;
 }
 
 .tabletTitle {
+  font-weight: medium;
   display: none;
   white-space: nowrap;
 
@@ -39,6 +42,7 @@
 
 .titleContainer {
   display: flex;
+  font-weight: medium;
   flex-direction: column;
 
   gap: 20px;

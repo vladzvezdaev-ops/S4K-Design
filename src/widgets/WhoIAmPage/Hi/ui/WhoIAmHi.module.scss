@@ -39,6 +39,7 @@
 }
 
 .textTitle {
+  font-weight: medium;
   @include tablet {
     font-size: 42px;
   }

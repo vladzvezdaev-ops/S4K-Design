@@ -9,7 +9,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/HeadHero.png");
+  background-image: url("/portfolioHero.png");
   overflow: hidden;
 
   @media (orientation: landscape) and (max-height: 500px) {
@@ -42,25 +42,42 @@
   }
 }
 
-.title {
+.btnWrapper {
   position: absolute;
-  font-weight: medium;
-  bottom: 60px;
-  left: 35px;
-
-  @include text-h1;
-  font-size: 40;
-  font-weight: 900;
+  right: 30px;
+  bottom: 230px;
 
   @include tablet {
-    font-size: 80px;
-    left: 50px;
-    bottom: 100px;
+    right: 50px;
   }
+
   @include laptop {
-    font-size: 110px;
+    right: 50px;
+    bottom: 300px;
   }
+
   @include desktop {
-    font-size: 130px;
+    right: 50px;
+    bottom: 420px;
+  }
+}
+
+.title {
+  position: absolute;
+  @include text-h1;
+  font-size: 40px;
+
+  right: 30px;
+  top: 230px;
+
+  @include tablet {
+    font-size: 72px;
+    left: 50px;
+    top: 300px;
+  }
+
+  @include laptop {
+    font-size: 128px;
+    top: 320px;
   }
 }

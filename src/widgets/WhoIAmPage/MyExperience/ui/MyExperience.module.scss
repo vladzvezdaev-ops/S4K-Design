@@ -17,6 +17,7 @@
 
 .title {
   font-size: 32px;
+  font-weight: medium;
   @include text-h2;
 
   @include tablet {
