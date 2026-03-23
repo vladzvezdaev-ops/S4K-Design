@@ -55,6 +55,11 @@
   @include text-h1;
   font-size: 40px;
 
+  @media (orientation: landscape) and (max-height: 500px) {
+    left: 400px;
+    bottom: 50px;
+  }
+
   @include tablet {
     top: 500px;
     left: 50px;
