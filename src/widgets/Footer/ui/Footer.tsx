@@ -17,7 +17,7 @@ export const Footer = () => {
               <Link href="/">Home</Link>
               <Link href="/services">UX/UI</Link>
               <Link href="/design">Brand design</Link>
-              <Link href="/portfolio">Portfolio</Link>
+              <Link href="/Portfolio">Portfolio</Link>
               <Link href="/about">About me</Link>
               <Link href="/process">Process</Link>
               <Link href="/contact">Contact</Link>
