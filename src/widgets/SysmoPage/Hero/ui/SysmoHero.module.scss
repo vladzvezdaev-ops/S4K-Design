@@ -55,23 +55,31 @@
   @include text-h1;
   font-size: 40px;
 
-  @media (orientation: landscape) and (max-height: 500px) {
-    left: 400px;
-    bottom: 50px;
-  }
-
   @include tablet {
-    top: 500px;
-    left: 50px;
-    width: 300px;
-    font-size: 92px;
+    @media (min-height: 501px) {
+      top: 500px;
+      left: 50px;
+      width: 300px;
+      font-size: 92px;
+    }
   }
 
   @include laptop {
-    top: 470px;
-    left: 50px;
-    width: 300px;
-    font-size: 128px;
+    @media (min-height: 501px) {
+      top: 500px;
+      left: 50px;
+      width: 300px;
+      font-size: 128px;
+    }
+  }
+
+  @media (orientation: landscape) and (max-height: 500px) {
+    position: absolute;
+    left: 300px !important;
+    bottom: 120px !important;
+    top: auto;
+    font-size: 60px;
+    white-space: nowrap;
   }
 }
 
