@@ -1,0 +1,135 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+
+.wrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
+  color: $fourth-white-color;
+
+  @include tablet {
+    padding: 80px 40px;
+  }
+}
+
+.mobileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+
+  @include tablet {
+    display: none;
+  }
+
+  .infoBlock {
+    margin-top: 50px;
+    h3 {
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+    p {
+      font-size: 20px;
+      line-height: 1.5;
+      font-weight: 400;
+      color: $fourth-white-color;
+      opacity: 0.8;
+    }
+  }
+}
+
+.desktopOverview {
+  display: none;
+
+  @include tablet {
+    display: block;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+
+    h3 {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.6;
+      font-weight: 400;
+
+      strong {
+        font-weight: 600;
+        color: $fourth-white-color;
+      }
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "one one"
+    "two three"
+    "four four"
+    "five five";
+  gap: 20px;
+
+  @include tablet {
+    row-gap: 50px;
+    column-gap: 20px;
+  }
+}
+
+.item {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  &:nth-child(1) {
+    grid-area: one;
+  }
+  &:nth-child(2) {
+    grid-area: two;
+  }
+  &:nth-child(3) {
+    grid-area: three;
+  }
+  &:nth-child(4) {
+    grid-area: four;
+  }
+  &:nth-child(5) {
+    grid-area: five;
+  }
+}
+
+.imageInner {
+  position: relative;
+  width: 100%;
+
+  .item:nth-child(1) &,
+  .item:nth-child(4) &,
+  .item:nth-child(5) & {
+    aspect-ratio: 21 / 9;
+
+    @media (max-width: 767px) {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  .item:nth-child(2) &,
+  .item:nth-child(3) & {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.image {
+  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+}

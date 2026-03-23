@@ -1,0 +1,1 @@
+export {SysmoPhotoSection} from './ui/SysmoPhotoSection'

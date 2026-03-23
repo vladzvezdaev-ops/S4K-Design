@@ -20,7 +20,7 @@ const projectsData = [
   {
     id: "3",
     imageUrl: "/card/laptop1.png",
-    link: "/projects/dashboard-v1",
+    link: "/Sysmo",
   },
   {
     id: "4",
