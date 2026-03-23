@@ -1,0 +1,104 @@
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/variables" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px 110px 20px;
+
+  @include tablet {
+    gap: 70px;
+  }
+
+  @include laptop {
+    gap: 100px;
+  }
+}
+
+.titleMiddle {
+  text-align: center;
+}
+
+.titleBottom {
+  text-align: end;
+}
+
+.tabletTitle {
+  display: none;
+  white-space: nowrap;
+
+  @include tablet {
+    display: block;
+    font-size: 56px;
+  }
+
+  @include laptop {
+    font-size: 72px;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+  @include text-h2;
+  font-size: 32px;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px 40px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 40px;
+  }
+
+  @include laptop {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 120px 40px;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.itemTitle {
+  color: $secondary-orange-color;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: none;
+
+  @include text-h3;
+
+  @include tablet {
+    font-size: 40px;
+  }
+
+  @include laptop {
+    font-size: 30px;
+  }
+
+  @include desktop {
+    font-size: 40px;
+  }
+}
+
+.itemText {
+  @include text-main;
+  color: $fourth-white-color;
+  font-size: 16px;
+
+  @include tablet {
+    font-size: 20px;
+  }
+}

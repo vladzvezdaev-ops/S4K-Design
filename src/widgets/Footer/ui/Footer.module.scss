@@ -117,6 +117,14 @@
 
   @include text-main;
 
+  @include tablet {
+    bottom: 70px;
+  }
+
+  @include laptop {
+    bottom: 240px;
+  }
+
   .name {
     font-weight: bold;
     color: #fff;

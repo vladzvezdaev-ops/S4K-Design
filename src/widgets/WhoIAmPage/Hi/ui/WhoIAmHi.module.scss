@@ -1,0 +1,49 @@
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/variables" as *;
+
+.container {
+  padding: 110px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @include tablet {
+    padding: 145px 50px;
+    flex-direction: row;
+    gap: 50px;
+  }
+}
+
+.photo {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  object-position: 20% 55%;
+
+  @include tablet {
+    height: 500px;
+    width: 100%;
+  }
+}
+
+.textSection {
+  @include text-main;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+
+  @include tablet {
+    gap: 25px;
+  }
+}
+
+.textTitle {
+  @include tablet {
+    font-size: 42px;
+  }
+
+  @include laptop {
+    font-size: 72px;
+  }
+}

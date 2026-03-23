@@ -1,0 +1,70 @@
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/variables" as *;
+
+.container {
+  padding: 0 20px 110px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+
+  @include tablet {
+    padding: 0 40px 145px 40px;
+    margin-right: 0;
+    margin-left: auto;
+    gap: 50px;
+  }
+}
+
+.title {
+  font-size: 32px;
+  @include text-h2;
+
+  @include tablet {
+    font-size: 56px;
+  }
+
+  @include laptop {
+    font-size: 72px;
+  }
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 72px;
+
+  @include text-main;
+
+  @include tablet {
+    flex-direction: row;
+    gap: 250px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @include tablet {
+    gap: 20px;
+  }
+}
+
+.listTitle {
+  font-weight: 700;
+  font-size: 40px;
+  color: $red;
+}
+
+.listText {
+  font-weight: 700;
+  font-size: 32px;
+  font-style: bold;
+}
+
+.listItem {
+  font-weight: 400;
+  font-size: 20px;
+}
