@@ -60,13 +60,17 @@ const CustomCursor = () => {
   const mouseY = useMotionValue(-100);
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouch, setIsTouch] = useState(false);
 
   const springX = useSpring(mouseX, { damping: 30, stiffness: 300 });
   const springY = useSpring(mouseY, { damping: 30, stiffness: 300 });
 
   useEffect(() => {
+    setIsTouch(window.matchMedia("(pointer: coarse)").matches);
+
     const move = (e: PointerEvent) => {
       if (!isVisible) setIsVisible(true);
+
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
 
@@ -74,50 +78,36 @@ const CustomCursor = () => {
       const hovered = !!target.closest(
         `.${styles.card}, .${styles.homeBtn}, .${styles.socialLink}`,
       );
-
-      setIsHovered((prev) => (prev !== hovered ? hovered : prev));
+      setIsHovered(hovered);
     };
+
+    const handleLeave = () => setIsVisible(false);
+    const handleEnter = () => setIsVisible(true);
 
     window.addEventListener("pointermove", move, { passive: true });
     window.addEventListener("pointerdown", move);
-    document.addEventListener("pointerleave", () => setIsVisible(false));
+    document.addEventListener("pointerleave", handleLeave);
+    document.addEventListener("pointerenter", handleEnter);
 
     return () => {
       window.removeEventListener("pointermove", move);
       window.removeEventListener("pointerdown", move);
+      document.removeEventListener("pointerleave", handleLeave);
+      document.removeEventListener("pointerenter", handleEnter);
     };
   }, [isVisible, mouseX, mouseY]);
 
+  if (isTouch) return null;
+
   return (
     <motion.div
-      className={styles.customCursor}
-      animate={{
-        width: isHovered ? 70 : 12,
-        height: isHovered ? 70 : 12,
-        backgroundColor: isHovered
-          ? "rgba(0, 255, 204, 0.1)"
-          : "rgba(0, 255, 204, 1)",
-        border: isHovered
-          ? "1px solid rgba(0, 255, 204, 0.5)"
-          : "0px solid rgba(0, 255, 204, 0)",
-      }}
-      transition={{
-        type: "spring",
-        damping: 25,
-        stiffness: 200,
-        backgroundColor: { duration: 0.2 },
-      }}
+      className={`${styles.customCursor} ${isHovered ? styles.cursorHovered : ""}`}
       style={{
         x: springX,
         y: springY,
         opacity: isVisible ? 1 : 0,
-        display:
-          typeof window !== "undefined" &&
-          window.matchMedia("(pointer: coarse)").matches &&
-          !isHovered
-            ? "none"
-            : "block",
       }}
+      transition={{ opacity: { duration: 0.2 } }}
     />
   );
 };
@@ -175,9 +165,11 @@ export const VladyslavSections = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let particles: Particle[] = [];
+    let particles: any[] = [];
     let waves: any[] = [];
     let mouse = { x: -1000, y: -1000 };
+    let startPos = { x: 0, y: 0 };
+    let isMoving = false;
     let animationId: number;
 
     class Particle {
@@ -237,7 +229,6 @@ export const VladyslavSections = () => {
       particles = [];
       const isMobile = window.innerWidth < 768;
       const spacing = isMobile ? 24 : 35;
-
       for (let y = 0; y < canvas.height; y += spacing) {
         for (let x = 0; x < canvas.width; x += spacing) {
           particles.push(new Particle(x, y));
@@ -246,15 +237,12 @@ export const VladyslavSections = () => {
     };
 
     const anim = () => {
-      if (!ctx) return;
       ctx.fillStyle = "#000";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-
       waves.forEach((w, i) => {
         w.r += 18;
         if (w.r > 2000) waves.splice(i, 1);
       });
-
       particles.forEach((p) => {
         p.update();
         p.draw();
@@ -266,24 +254,39 @@ export const VladyslavSections = () => {
     anim();
 
     const handleDown = (e: PointerEvent) => {
-      if ((e.target as HTMLElement).tagName === "CANVAS") {
-        waves.push({ x: e.clientX, y: e.clientY, r: 0 });
-      }
+      startPos = { x: e.clientX, y: e.clientY };
+      isMoving = false;
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
     };
 
     const handleMove = (e: PointerEvent) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
+      if (
+        Math.abs(e.clientX - startPos.x) > 5 ||
+        Math.abs(e.clientY - startPos.y) > 5
+      ) {
+        isMoving = true;
+      }
+    };
+
+    const handleUp = (e: PointerEvent) => {
+      if (!isMoving && (e.target as HTMLElement).tagName === "CANVAS") {
+        waves.push({ x: e.clientX, y: e.clientY, r: 0 });
+      }
     };
 
     window.addEventListener("pointerdown", handleDown);
     window.addEventListener("pointermove", handleMove, { passive: true });
+    window.addEventListener("pointerup", handleUp);
     window.addEventListener("resize", init);
 
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("pointerdown", handleDown);
       window.removeEventListener("pointermove", handleMove);
+      window.removeEventListener("pointerup", handleUp);
       window.removeEventListener("resize", init);
     };
   }, []);
@@ -322,6 +325,7 @@ export const VladyslavSections = () => {
       <Link href="/" className={styles.homeBtn}>
         BACK TO MAIN
       </Link>
+
       {[
         {
           id: 1,
@@ -364,46 +368,20 @@ export const VladyslavSections = () => {
               onPointerDown={(e) => e.stopPropagation()}
             >
               <div className={styles.linkEnergy}>
-                <div
-                  className={styles.energyCore}
-                  style={
-                    {
-                      "--delay": "0s",
-                      "--angle": "-11deg",
-                      "--x": "-7px",
-                    } as any
-                  }
-                />
-                <div
-                  className={styles.energyCore}
-                  style={
-                    {
-                      "--delay": "0.4s",
-                      "--angle": "8deg",
-                      "--x": "8px",
-                    } as any
-                  }
-                />
-                <div
-                  className={styles.energyCore}
-                  style={
-                    {
-                      "--delay": "0.9s",
-                      "--angle": "-5deg",
-                      "--x": "5px",
-                    } as any
-                  }
-                />
-                <div
-                  className={styles.energyCore}
-                  style={
-                    {
-                      "--delay": "1.4s",
-                      "--angle": "14deg",
-                      "--x": "-8px",
-                    } as any
-                  }
-                />
+                {[
+                  { d: "0s", a: "-11deg", x: "-7px" },
+                  { d: "0.4s", a: "8deg", x: "8px" },
+                  { d: "0.9s", a: "-5deg", x: "5px" },
+                  { d: "1.4s", a: "14deg", x: "-8px" },
+                ].map((s, idx) => (
+                  <div
+                    key={idx}
+                    className={styles.energyCore}
+                    style={
+                      { "--delay": s.d, "--angle": s.a, "--x": s.x } as any
+                    }
+                  />
+                ))}
               </div>
               {link.label}
             </a>
