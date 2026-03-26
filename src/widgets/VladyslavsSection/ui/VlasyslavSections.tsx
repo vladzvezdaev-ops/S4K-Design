@@ -8,49 +8,42 @@ const GLITCH_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 const SmartText = ({ text }: { text: string }) => {
   const textRef = useRef<HTMLSpanElement>(null);
+  
   useEffect(() => {
     const el = textRef.current;
     const parentCard = el?.closest(`.${styles.card}`);
     if (!el || !parentCard) return;
+
     let frameId: number;
     let isGlitching = false;
+
     const startGlitch = () => {
       if (isGlitching) return;
       isGlitching = true;
       let iteration = 0;
       const animate = () => {
-        if (!isGlitching) return;
-        el.innerText = text
-          .split("")
-          .map((char, index) => {
-            if (index < iteration) return text[index];
-            if (char === " ") return " ";
-            return GLITCH_CHARS[
-              Math.floor(Math.random() * GLITCH_CHARS.length)
-            ];
-          })
-          .join("");
+        el.innerText = text.split("").map((char, index) => {
+          if (index < iteration) return text[index];
+          if (char === " ") return " ";
+          return GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
+        }).join("");
         iteration += 1 / 2;
         if (iteration < text.length) frameId = requestAnimationFrame(animate);
-        else {
-          el.innerText = text;
-          isGlitching = false;
-        }
+        else { el.innerText = text; isGlitching = false; }
       };
       frameId = requestAnimationFrame(animate);
     };
-    const stopGlitch = () => {
-      isGlitching = false;
-      cancelAnimationFrame(frameId);
-      el.innerText = text;
-    };
+
     parentCard.addEventListener("mouseenter", startGlitch);
-    parentCard.addEventListener("mouseleave", stopGlitch);
+    parentCard.addEventListener("click", startGlitch); 
+
     return () => {
       parentCard.removeEventListener("mouseenter", startGlitch);
-      parentCard.removeEventListener("mouseleave", stopGlitch);
+      parentCard.removeEventListener("click", startGlitch);
+      cancelAnimationFrame(frameId);
     };
   }, [text]);
+
   return <span ref={textRef}>{text}</span>;
 };
 
@@ -63,26 +56,36 @@ const CustomCursor = () => {
   const springY = useSpring(mouseY, { damping: 25, stiffness: 250 });
 
   useEffect(() => {
-    const move = (e: MouseEvent) => {
+    const move = (e: PointerEvent) => {
       if (!isVisible) setIsVisible(true);
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
+      
       const target = e.target as HTMLElement;
-      setIsHovered(
-        !!target.closest(
-          `.${styles.card}, .${styles.homeBtn}, .${styles.socialLink}`,
-        ),
-      );
+      setIsHovered(!!target.closest(`.${styles.card}, .${styles.homeBtn}, .${styles.socialLink}`));
     };
-    window.addEventListener("mousemove", move);
-    document.addEventListener("mouseleave", () => setIsVisible(false));
-    return () => window.removeEventListener("mousemove", move);
+
+    const stopHover = () => setIsHovered(false);
+
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", stopHover); // Сброс при отпускании пальца
+    document.addEventListener("pointerleave", () => setIsVisible(false));
+    
+    return () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", stopHover);
+    };
   }, [isVisible, mouseX, mouseY]);
 
   return (
     <motion.div
       className={`${styles.customCursor} ${isHovered ? styles.cursorHovered : ""}`}
-      style={{ x: springX, y: springY, opacity: isVisible ? 1 : 0 }}
+      style={{ 
+        x: springX, 
+        y: springY, 
+        opacity: isVisible ? 1 : 0,
+        display: typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches && !isHovered ? 'none' : 'block'
+      }}
     />
   );
 };

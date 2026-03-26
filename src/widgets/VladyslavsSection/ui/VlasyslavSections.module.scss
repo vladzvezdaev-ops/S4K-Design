@@ -122,6 +122,8 @@
   transform-style: preserve-3d;
   perspective: 1000px;
 
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
   backdrop-filter: url(#liquid-glass) blur(12px);
   -webkit-backdrop-filter: url(#liquid-glass) blur(12px);
 
