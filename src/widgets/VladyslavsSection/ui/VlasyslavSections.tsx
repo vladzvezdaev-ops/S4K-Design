@@ -8,7 +8,7 @@ const GLITCH_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 const SmartText = ({ text }: { text: string }) => {
   const textRef = useRef<HTMLSpanElement>(null);
-  
+
   useEffect(() => {
     const el = textRef.current;
     const parentCard = el?.closest(`.${styles.card}`);
@@ -22,20 +22,28 @@ const SmartText = ({ text }: { text: string }) => {
       isGlitching = true;
       let iteration = 0;
       const animate = () => {
-        el.innerText = text.split("").map((char, index) => {
-          if (index < iteration) return text[index];
-          if (char === " ") return " ";
-          return GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
-        }).join("");
+        el.innerText = text
+          .split("")
+          .map((char, index) => {
+            if (index < iteration) return text[index];
+            if (char === " ") return " ";
+            return GLITCH_CHARS[
+              Math.floor(Math.random() * GLITCH_CHARS.length)
+            ];
+          })
+          .join("");
         iteration += 1 / 2;
         if (iteration < text.length) frameId = requestAnimationFrame(animate);
-        else { el.innerText = text; isGlitching = false; }
+        else {
+          el.innerText = text;
+          isGlitching = false;
+        }
       };
       frameId = requestAnimationFrame(animate);
     };
 
     parentCard.addEventListener("mouseenter", startGlitch);
-    parentCard.addEventListener("click", startGlitch); 
+    parentCard.addEventListener("click", startGlitch);
 
     return () => {
       parentCard.removeEventListener("mouseenter", startGlitch);
@@ -52,39 +60,63 @@ const CustomCursor = () => {
   const mouseY = useMotionValue(-100);
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const springX = useSpring(mouseX, { damping: 25, stiffness: 250 });
-  const springY = useSpring(mouseY, { damping: 25, stiffness: 250 });
+
+  const springX = useSpring(mouseX, { damping: 30, stiffness: 300 });
+  const springY = useSpring(mouseY, { damping: 30, stiffness: 300 });
 
   useEffect(() => {
     const move = (e: PointerEvent) => {
       if (!isVisible) setIsVisible(true);
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-      
+
       const target = e.target as HTMLElement;
-      setIsHovered(!!target.closest(`.${styles.card}, .${styles.homeBtn}, .${styles.socialLink}`));
+      const hovered = !!target.closest(
+        `.${styles.card}, .${styles.homeBtn}, .${styles.socialLink}`,
+      );
+
+      setIsHovered((prev) => (prev !== hovered ? hovered : prev));
     };
 
-    const stopHover = () => setIsHovered(false);
-
-    window.addEventListener("pointermove", move);
-    window.addEventListener("pointerup", stopHover); // Сброс при отпускании пальца
+    window.addEventListener("pointermove", move, { passive: true });
+    window.addEventListener("pointerdown", move);
     document.addEventListener("pointerleave", () => setIsVisible(false));
-    
+
     return () => {
       window.removeEventListener("pointermove", move);
-      window.removeEventListener("pointerup", stopHover);
+      window.removeEventListener("pointerdown", move);
     };
   }, [isVisible, mouseX, mouseY]);
 
   return (
     <motion.div
-      className={`${styles.customCursor} ${isHovered ? styles.cursorHovered : ""}`}
-      style={{ 
-        x: springX, 
-        y: springY, 
+      className={styles.customCursor}
+      animate={{
+        width: isHovered ? 70 : 12,
+        height: isHovered ? 70 : 12,
+        backgroundColor: isHovered
+          ? "rgba(0, 255, 204, 0.1)"
+          : "rgba(0, 255, 204, 1)",
+        border: isHovered
+          ? "1px solid rgba(0, 255, 204, 0.5)"
+          : "0px solid rgba(0, 255, 204, 0)",
+      }}
+      transition={{
+        type: "spring",
+        damping: 25,
+        stiffness: 200,
+        backgroundColor: { duration: 0.2 },
+      }}
+      style={{
+        x: springX,
+        y: springY,
         opacity: isVisible ? 1 : 0,
-        display: typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches && !isHovered ? 'none' : 'block'
+        display:
+          typeof window !== "undefined" &&
+          window.matchMedia("(pointer: coarse)").matches &&
+          !isHovered
+            ? "none"
+            : "block",
       }}
     />
   );
@@ -102,22 +134,19 @@ const TiltCard = ({
   const rotateX = useSpring(useTransform(y, [-150, 150], [25, -25]));
   const rotateY = useSpring(useTransform(x, [-150, 150], [-25, 25]));
 
-  const stopProp = (e: React.MouseEvent | React.PointerEvent) => {
-    e.stopPropagation();
-  };
+  const stopProp = (e: React.PointerEvent) => e.stopPropagation();
 
   return (
     <motion.div
       drag
       dragConstraints={constraintsRef}
       onPointerDown={stopProp}
-      onMouseDown={stopProp}
-      onMouseMove={(e) => {
+      onPointerMove={(e) => {
         const rect = e.currentTarget.getBoundingClientRect();
         x.set(e.clientX - (rect.left + rect.width / 2));
         y.set(e.clientY - (rect.top + rect.height / 2));
       }}
-      onMouseLeave={() => {
+      onPointerLeave={() => {
         x.set(0);
         y.set(0);
       }}
@@ -146,7 +175,7 @@ export const VladyslavSections = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let particles: any[] = [];
+    let particles: Particle[] = [];
     let waves: any[] = [];
     let mouse = { x: -1000, y: -1000 };
     let animationId: number;
@@ -168,31 +197,34 @@ export const VladyslavSections = () => {
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const d = Math.sqrt(dx * dx + dy * dy);
+
         if (d < 120) {
           const f = (120 - d) / 120;
-          this.vx -= (dx / d) * f * 0.6;
-          this.vy -= (dy / d) * f * 0.6;
+          this.vx -= (dx / d) * f * 0.8;
+          this.vy -= (dy / d) * f * 0.8;
         }
+
         waves.forEach((w) => {
           const dxw = w.x - this.x;
           const dyw = w.y - this.y;
           const dw = Math.sqrt(dxw * dxw + dyw * dyw);
-          if (dw < w.r && dw > w.r - 60) {
-            const f = (60 - (w.r - dw)) / 60;
-            this.vx -= (dxw / dw) * f * 10;
-            this.vy -= (dyw / dw) * f * 10;
+          if (dw < w.r && dw > w.r - 80) {
+            const f = (80 - (w.r - dw)) / 80;
+            this.vx -= (dxw / dw) * f * 15;
+            this.vy -= (dyw / dw) * f * 15;
           }
         });
+
         this.vx += (this.bx - this.x) * 0.05;
         this.vy += (this.by - this.y) * 0.05;
-        this.vx *= 0.88;
-        this.vy *= 0.88;
+        this.vx *= 0.9;
+        this.vy *= 0.9;
         this.x += this.vx;
         this.y += this.vy;
       }
       draw() {
         if (!ctx) return;
-        ctx.fillStyle = "rgba(0, 255, 204, 0.5)";
+        ctx.fillStyle = "rgba(0, 255, 204, 0.45)";
         ctx.beginPath();
         ctx.arc(this.x, this.y, 1.2, 0, Math.PI * 2);
         ctx.fill();
@@ -203,9 +235,8 @@ export const VladyslavSections = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       particles = [];
-
       const isMobile = window.innerWidth < 768;
-      const spacing = isMobile ? 28 : 35;
+      const spacing = isMobile ? 24 : 35;
 
       for (let y = 0; y < canvas.height; y += spacing) {
         for (let x = 0; x < canvas.width; x += spacing) {
@@ -213,40 +244,46 @@ export const VladyslavSections = () => {
         }
       }
     };
+
     const anim = () => {
       if (!ctx) return;
       ctx.fillStyle = "#000";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
       waves.forEach((w, i) => {
-        w.r += 15;
+        w.r += 18;
         if (w.r > 2000) waves.splice(i, 1);
       });
+
       particles.forEach((p) => {
         p.update();
         p.draw();
       });
       animationId = requestAnimationFrame(anim);
     };
+
     init();
     anim();
 
-    const handleDown = (e: MouseEvent) => {
+    const handleDown = (e: PointerEvent) => {
       if ((e.target as HTMLElement).tagName === "CANVAS") {
         waves.push({ x: e.clientX, y: e.clientY, r: 0 });
       }
     };
-    const handleMove = (e: MouseEvent) => {
+
+    const handleMove = (e: PointerEvent) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
     };
 
-    window.addEventListener("mousedown", handleDown);
-    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("pointerdown", handleDown);
+    window.addEventListener("pointermove", handleMove, { passive: true });
     window.addEventListener("resize", init);
+
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener("mousedown", handleDown);
-      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("pointerdown", handleDown);
+      window.removeEventListener("pointermove", handleMove);
       window.removeEventListener("resize", init);
     };
   }, []);
@@ -285,7 +322,6 @@ export const VladyslavSections = () => {
       <Link href="/" className={styles.homeBtn}>
         BACK TO MAIN
       </Link>
-
       {[
         {
           id: 1,
@@ -305,7 +341,8 @@ export const VladyslavSections = () => {
         {
           id: 3,
           title: "Contact",
-          content: "Available for high-end collaborations.",
+          content:
+            "Available for high-end collaborations and innovative digital solutions.",
           x: "40%",
           y: "60%",
         },
@@ -324,7 +361,7 @@ export const VladyslavSections = () => {
               href={link.url}
               target="_blank"
               className={styles.socialLink}
-              onMouseDown={(e) => e.stopPropagation()}
+              onPointerDown={(e) => e.stopPropagation()}
             >
               <div className={styles.linkEnergy}>
                 <div
