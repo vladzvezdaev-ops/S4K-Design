@@ -1,5 +1,5 @@
 "use client";
-import { VladyslavSections } from "@/widgets/VladyslavsSection";
+import { VladyslavSections } from "@/widgets/VladyslavsPage";
 import { motion } from "framer-motion";
 
 export default function VladPage() {

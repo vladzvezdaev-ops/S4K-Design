@@ -1,0 +1,99 @@
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/variables" as *;
+
+.section {
+  padding: 80px 0;
+  background-color: $primary-background-color;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 500;
+  color: #fff;
+  text-transform: uppercase;
+
+  @include laptop {
+    font-size: 72px;
+  }
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  gap: 170px;
+  padding-top: 12px;
+
+  @include tablet {
+    justify-content: flex-start;
+    gap: 30px;
+    padding-top: 40px;
+  }
+
+  button {
+    background: $fourth-white-color;
+    border: 1px solid #fff;
+    width: 28px;
+    height: 28px;
+    padding: 4px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include tablet {
+      border: none;
+      background: transparent;
+    }
+
+    &:hover {
+      background: #000;
+
+      @include tablet {
+        background: transparent;
+      }
+
+      .arrowIconLeft,
+      .arrowIconRight {
+        filter: brightness(0) invert(1);
+
+        @include tablet {
+          background: transparent;
+        }
+      }
+    }
+  }
+}
+
+.arrowIconLeft,
+.arrowIconRight {
+  transition: filter 0.3s ease;
+  filter: brightness(0);
+
+  @include tablet {
+    width: 25px;
+    height: 30px;
+    filter: brightness(0) invert(1);
+  }
+}
+
+.arrowIconLeft {
+  transform: rotate(270deg);
+}
+
+.arrowIconRight {
+  transform: rotate(90deg);
+}

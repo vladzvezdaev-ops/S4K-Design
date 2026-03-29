@@ -1,0 +1,100 @@
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/variables" as *;
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  font-family: $font-main;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("/mobileUXUIdesign.png");
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  padding: 20px;
+
+  @include tablet {
+    background-image: url("/UX-UIhero.png");
+    padding: 50px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($primary-background-color, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    z-index: 0;
+  }
+
+  @media (orientation: landscape) and (max-height: 500px) {
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    min-height: 100vh;
+    min-height: 100svh;
+    width: 100%;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35vh;
+    @include tablet {
+      background: linear-gradient(
+        to top,
+        $primary-background-color 0%,
+        rgba($primary-background-color, 0.8) 25%,
+        rgba($primary-background-color, 0) 100%
+      );
+    }
+
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+.launchBtnHero {
+  position: absolute;
+  bottom: 25%;
+  z-index: 99;
+
+  @include tablet {
+    right: 50;
+  }
+}
+
+.title {
+  position: absolute;
+  top: 25%;
+  @include text-h1;
+  font-size: 40px;
+  font-weight: 900;
+  width: 360px;
+
+  @include tablet {
+    font-size: 84px;
+    top: 60%;
+  }
+
+  @include laptop {
+    font-size: 128px;
+    top: 60%;
+  }
+}
+
+.titleSpan {
+  @include tablet {
+    display: none;
+  }
+}

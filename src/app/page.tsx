@@ -1,10 +1,10 @@
 import { FadeIn } from "@/shared/ui/fade-in/FadeIn";
-import { AboutMe } from "@/widgets/AboutMe";
+import { AboutMe } from "@/widgets/AboutMePage";
 import { DiscountSection } from "@/widgets/DiscountSection";
 import { Hero } from "@/widgets/Hero";
-import { MyInstagram } from "@/widgets/MyInstagram";
+import { MyInstagram } from "@/widgets/MyInstagramSection";
 export const dynamic = "force-dynamic";
-import { PortfolioSlider } from "@/widgets/PortfolioSlider";
+import { PortfolioSlider } from "@/widgets/PortfolioSliderSection";
 
 const projectsData = [
   {
