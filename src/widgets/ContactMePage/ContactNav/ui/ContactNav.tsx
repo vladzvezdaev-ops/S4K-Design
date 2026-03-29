@@ -22,7 +22,7 @@ export const ContactNav: React.FC = () => {
           <a href="tel:+48517365658" className={styles.item}>
             <span>+(48) 517-365-658</span>
             <div className={styles.arrowBtn}>
-              <BurgerIcon />{" "}
+              <BurgerIcon />
             </div>
           </a>
         </div>

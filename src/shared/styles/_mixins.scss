@@ -58,3 +58,19 @@ $breakpoint-desktop: 1440px;
   font-size: 18px;
   font-weight: $fw-regular;
 }
+
+// Scrollbar
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $fourth-white-color;
+    border-radius: 2px;
+  }
+}
