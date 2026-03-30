@@ -1,8 +1,8 @@
 "use client";
 
-import { FadeIn } from "@/shared/ui/fade-in/FadeIn";
-import { ContactHero } from "@/widgets/ContactMePage/ContactHero";
-import { ContactNav } from "@/widgets/ContactMePage/ContactNav";
+import { FadeIn } from "@/shared/ui/Fade-in/FadeIn";
+import { ContactHero } from "@/widgets/pages/ContactMePage/ContactHero";
+import { ContactNav } from "@/widgets/pages/ContactMePage/ContactNav";
 
 export default function ContactPage() {
   return (

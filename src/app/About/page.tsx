@@ -1,11 +1,11 @@
 "use client";
 
-import { WhoIAmHero } from "@/widgets/WhoIAmPage/Hero";
-import { WhoIAmHi } from "@/widgets/WhoIAmPage/Hi";
-import { FadeIn } from "@/shared/ui/fade-in/FadeIn";
-import { MyExperience } from "@/widgets/WhoIAmPage/MyExperience";
-import { DiscountSection } from "@/widgets/DiscountSection";
-import { ValuesInspiration } from "@/widgets/WhoIAmPage/ValuesInspiration";
+import { WhoIAmHero } from "@/widgets/pages/WhoIAmPage/Hero";
+import { WhoIAmHi } from "@/widgets/pages/WhoIAmPage/Hi";
+import { FadeIn } from "@/shared/ui/Fade-in/FadeIn";
+import { MyExperience } from "@/widgets/pages/WhoIAmPage/MyExperience";
+import { DiscountSection } from "@/widgets/pages/MainPage/DiscountSection";
+import { ValuesInspiration } from "@/widgets/pages/WhoIAmPage/ValuesInspiration";
 
 const AboutPage = () => {
   return (

@@ -4,7 +4,7 @@ import styles from "./Footer.module.scss";
 import { LinkedIn } from "@/shared/ui/Icon/Network/LinkedIn";
 import { TransitionOverlay } from "@/shared/ui/TransitionOverlay/TransitionOverlay";
 import { Inst } from "@/shared/ui/Icon/Network/Inst";
-import { FadeIn } from "@/shared/ui/fade-in/FadeIn";
+import { FadeIn } from "@/shared/ui/Fade-in/FadeIn";
 
 export const Footer = () => {
   return (

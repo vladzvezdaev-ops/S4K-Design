@@ -1,8 +1,8 @@
 "use client";
 
-import { FadeIn } from "@/shared/ui/fade-in/FadeIn";
-import { BrandPortfolioSection } from "@/widgets/PortfolioPage/BrandPortfolioSection";
-import { PortfolioHero } from "@/widgets/PortfolioPage/Hero";
+import { FadeIn } from "@/shared/ui/Fade-in/FadeIn";
+import { BrandPortfolioSection } from "@/widgets/pages/PortfolioPage/BrandPortfolioSection";
+import { PortfolioHero } from "@/widgets/pages/PortfolioPage/Hero";
 import { Project } from "@/entities/project/model/types";
 
 const brandProjects: Project[] = [

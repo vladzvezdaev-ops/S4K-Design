@@ -1,10 +1,10 @@
-import { FadeIn } from "@/shared/ui/fade-in/FadeIn";
-import { AboutMe } from "@/widgets/AboutMePage";
-import { DiscountSection } from "@/widgets/DiscountSection";
-import { Hero } from "@/widgets/Hero";
-import { MyInstagram } from "@/widgets/MyInstagramSection";
+import { FadeIn } from "@/shared/ui/Fade-in/FadeIn";
+import { AboutMe } from "@/widgets/pages/AboutMePage";
+import { DiscountSection } from "@/widgets/pages/MainPage/DiscountSection";
+import { Hero } from "@/widgets/layout/Hero";
+import { MyInstagram } from "@/widgets/pages/MainPage/MyInstagramSection";
 export const dynamic = "force-dynamic";
-import { PortfolioSlider } from "@/widgets/PortfolioSliderSection";
+import { PortfolioSlider } from "@/widgets/pages/MainPage/PortfolioSliderSection";
 
 const projectsData = [
   {

@@ -1,8 +1,8 @@
 "use client";
 
-import { FadeIn } from "@/shared/ui/fade-in/FadeIn";
-import { SysmoHero } from "@/widgets/SysmoPage/Hero";
-import { SysmoPhotoSection } from "@/widgets/SysmoPage/SysmoPhotoSection";
+import { FadeIn } from "@/shared/ui/Fade-in/FadeIn";
+import { SysmoHero } from "@/widgets/pages/SysmoPage/Hero";
+import { SysmoPhotoSection } from "@/widgets/pages/SysmoPage/SysmoPhotoSection";
 
 const Sysmo = () => {
   return (

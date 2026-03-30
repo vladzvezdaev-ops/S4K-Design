@@ -1,11 +1,11 @@
 "use client";
 
-import { FadeIn } from "@/shared/ui/fade-in/FadeIn";
-import { BrandIdHero } from "@/widgets/BrandIdentityPage/Hero";
-import { PortfolioSlider } from "@/widgets/PortfolioSliderSection";
-import { DiscountSection } from "@/widgets/DiscountSection";
-import { BrandProcessSection } from "@/widgets/BrandIdentityPage/ProcessSection";
-import { UXUiBenefits } from "@/widgets/UXUiPage/BenefitsSection";
+import { FadeIn } from "@/shared/ui/Fade-in/FadeIn";
+import { BrandIdHero } from "@/widgets/pages/BrandIdentityPage/Hero";
+import { PortfolioSlider } from "@/widgets/pages/MainPage/PortfolioSliderSection";
+import { DiscountSection } from "@/widgets/pages/MainPage/DiscountSection";
+import { BrandProcessSection } from "@/widgets/pages/BrandIdentityPage/ProcessSection";
+import { UXUiBenefits } from "@/widgets/pages/UXUiPage/BenefitsSection";
 
 const projectsData = [
   {

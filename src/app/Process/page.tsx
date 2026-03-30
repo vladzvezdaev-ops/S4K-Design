@@ -1,11 +1,11 @@
 "use client";
 
-import { FadeIn } from "@/shared/ui/fade-in/FadeIn";
-import { DiscountSection } from "@/widgets/DiscountSection";
-import { DragNdropSection } from "@/widgets/ProcessPage/Drag&DropSection";
-import { ProcessHero } from "@/widgets/ProcessPage/Hero";
-import { MattersSection } from "@/widgets/ProcessPage/MattersSection";
-import { ProcessSection } from "@/widgets/ProcessPage/ProcessSection";
+import { FadeIn } from "@/shared/ui/Fade-in/FadeIn";
+import { DiscountSection } from "@/widgets/pages/MainPage/DiscountSection";
+import { DragNdropSection } from "@/widgets/pages/ProcessPage/Drag&DropSection";
+import { ProcessHero } from "@/widgets/pages/ProcessPage/Hero";
+import { MattersSection } from "@/widgets/pages/ProcessPage/MattersSection";
+import { ProcessSection } from "@/widgets/pages/ProcessPage/ProcessSection";
 import { Fa } from "node_modules/sanity/lib/_chunks-dts/ActiveWorkspaceMatcherContext";
 
 const ProcessPage = () => {
