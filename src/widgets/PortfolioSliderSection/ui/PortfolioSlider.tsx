@@ -14,16 +14,20 @@ import styles from "./PortfolioSlider.module.scss";
 
 interface PortfolioSliderProps {
   projects: Project[];
+  title?: string;
 }
 
-export const PortfolioSlider = ({ projects }: PortfolioSliderProps) => {
+export const PortfolioSlider = ({
+  projects,
+  title = "PORTFOLIO",
+}: PortfolioSliderProps) => {
   const [_, setInit] = useState(false);
 
   return (
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.top}>
-          <h2 className={styles.title}>PORTFOLIO</h2>
+          <h2 className={styles.title}>{title}</h2>
         </div>
 
         <Swiper
