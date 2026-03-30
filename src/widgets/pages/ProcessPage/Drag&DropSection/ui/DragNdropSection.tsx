@@ -46,14 +46,16 @@ export const DragNdropSection = () => {
             drag
             dragConstraints={constraintsRef}
             dragMomentum={true}
-            dragTransition={{ bounceStiffness: 100, bounceDamping: 10 }}
-            dragElastic={0.2}
+            dragTransition={{
+              power: 0.5,
+              timeConstant: 500,
+              modifyTarget: (target) => Math.round(target / 10) * 10,
+            }}
+            dragElastic={0.5}
             whileDrag={{
               scale: 1.1,
               zIndex: 100,
-              cursor: "grabbing",
             }}
-            layout
             className={`${styles.card} ${card.className}`}
           >
             <div className={styles.iceEffect}>

@@ -10,7 +10,7 @@
   min-height: 100vh;
   background-color: $primary-background-color;
   overflow: hidden;
-  touch-action: none;
+  touch-action: pan-y;
 
   @include tablet {
     min-height: 140vh;
@@ -75,6 +75,7 @@
   width: 90px;
   height: 85px;
   z-index: 2;
+  touch-action: none;
   cursor: grab;
 
   &:active {
