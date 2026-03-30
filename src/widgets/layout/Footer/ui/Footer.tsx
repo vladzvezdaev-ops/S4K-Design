@@ -20,7 +20,7 @@ export const Footer = () => {
               <Link href="/Portfolio">Portfolio</Link>
               <Link href="/About">About me</Link>
               <Link href="/Process">Process</Link>
-              <Link href="/contact">Contact</Link>
+              <Link href="/Contact">Contact</Link>
             </nav>
           </div>
 
@@ -66,7 +66,7 @@ export const Footer = () => {
           </div>
           <div className={styles.signature}>
             Developed by
-            <TransitionOverlay href="/vladyslav-zvezdaiev">
+            <TransitionOverlay href="/Vladyslav-zvezdaiev">
               <span className={styles.name} data-text="Vladyslav Zvezdaiev">
                 Vladyslav Zvezdaiev
               </span>

@@ -9,7 +9,7 @@ export const HeroUXUi = () => {
       <h1 className={styles.title}>
         UX/UI <span className={styles.titleSpan}>DESIGN</span>
       </h1>
-      <Button href="/contact" className={styles.launchBtnHero}>
+      <Button href="/Contact" className={styles.launchBtnHero}>
         Launch project
       </Button>
     </section>

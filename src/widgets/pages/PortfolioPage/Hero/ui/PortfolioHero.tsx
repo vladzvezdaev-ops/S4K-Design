@@ -8,7 +8,7 @@ export const PortfolioHero = () => {
     <div className={styles.hero}>
       <h1 className={styles.title}>PORTFOLIO</h1>
       <div className={styles.btnWrapper}>
-        <Button href="/contact" className={styles.launchBtnHero}>
+        <Button href="/Contact" className={styles.launchBtnHero}>
           Launch project
         </Button>
       </div>

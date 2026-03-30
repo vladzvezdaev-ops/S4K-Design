@@ -32,7 +32,7 @@ export const Header = () => {
         </div>
 
         <div className={styles.navWrapper}>
-          <Button href="/contact">Launch project</Button>
+          <Button href="/Contact">Launch project</Button>
           <nav className={styles.nav}>
             <Link href="/About">About me</Link>
             <div className={styles.desktopDropdown}>
@@ -47,7 +47,7 @@ export const Header = () => {
             </div>
             <Link href="/Portfolio">Portfolio</Link>
             <Link href="/Process">Process</Link>
-            <Link href="/contact">Contact</Link>
+            <Link href="/Contact">Contact</Link>
           </nav>
         </div>
         <button onClick={toggleMenu} className={styles.burgerBtn} type="button">
@@ -133,7 +133,7 @@ export const Header = () => {
             Process
           </Link>
           <Link
-            href="/contact"
+            href="/Contact"
             onClick={toggleMenu}
             className={styles.mobileLink}
           >
