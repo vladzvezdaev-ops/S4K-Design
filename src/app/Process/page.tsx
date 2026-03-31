@@ -2,7 +2,7 @@
 
 import { FadeIn } from "@/shared/ui/Fade-in/FadeIn";
 import { DiscountSection } from "@/widgets/pages/MainPage/DiscountSection";
-import { DragNdropSection } from "@/widgets/pages/ProcessPage/Drag&DropSection";
+import { DragNdropSection } from "@/widgets/pages/ProcessPage/DragAndDropSection";
 import { ProcessHero } from "@/widgets/pages/ProcessPage/Hero";
 import { MattersSection } from "@/widgets/pages/ProcessPage/MattersSection";
 import { ProcessSection } from "@/widgets/pages/ProcessPage/ProcessSection";
