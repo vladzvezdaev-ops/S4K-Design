@@ -26,7 +26,7 @@ export const PageLoader = () => {
       <div className={styles.spinner}>
         <Image
           className={styles.spinerIcon}
-          src="/spiner.svg"
+          src="/icons/spiner.svg"
           alt="Spiner"
           width={120}
           height={120}

@@ -65,7 +65,7 @@ export const PortfolioSlider = ({
         <div className={styles.navigation}>
           <button className={`${styles.buttonIcon} swiper-button-prev-custom`}>
             <Image
-              src="/arrow.svg"
+              src="/icons/arrow.svg"
               alt="arrow"
               width={14}
               height={14}
@@ -75,7 +75,7 @@ export const PortfolioSlider = ({
 
           <button className={`${styles.buttonIcon} swiper-button-next-custom`}>
             <Image
-              src="/arrow.svg"
+              src="/icons/arrow.svg"
               alt="arrow"
               width={14}
               height={14}

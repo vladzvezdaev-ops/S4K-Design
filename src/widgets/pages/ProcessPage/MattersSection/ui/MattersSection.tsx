@@ -44,7 +44,7 @@ export const MattersSection = () => {
 
           <div className={styles.imageWrapper}>
             <Image
-              src="/HeroMobile.png"
+              src="/pages/HeroMobile.png"
               alt="Design perspective"
               fill
               className={styles.photo}

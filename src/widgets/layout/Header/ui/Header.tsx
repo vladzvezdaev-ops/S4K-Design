@@ -22,7 +22,7 @@ export const Header = () => {
         <div className={styles.logoWrapper}>
           <Link href="/" className={styles.logo}>
             <Image
-              src="/icon.svg"
+              src="/shared/icon.svg"
               alt="SK4 Design Logo"
               width={72}
               height={23}
@@ -57,7 +57,7 @@ export const Header = () => {
       <Modal isOpen={isOpen} onClose={toggleMenu}>
         <div className={styles.menuHeader}>
           <Image
-            src="/burgerLogo.svg"
+            src="/shared/burgerLogo.svg"
             alt="Logo"
             width={72}
             height={23}
@@ -89,7 +89,7 @@ export const Header = () => {
             >
               Services
               <Image
-                src="/arrow.svg"
+                src="/icons/arrow.svg"
                 alt="arrow"
                 width={24}
                 height={24}

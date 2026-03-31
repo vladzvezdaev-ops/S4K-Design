@@ -9,14 +9,14 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/mobileUXUIdesign.png");
+  background-image: url("/pages/mobileUXUIdesign.png");
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   overflow: hidden;
   padding: 20px;
 
   @include tablet {
-    background-image: url("/UX-UIhero.png");
+    background-image: url("/pages/UX-UIhero.png");
     padding: 50px;
   }
 

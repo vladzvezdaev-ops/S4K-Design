@@ -6,7 +6,7 @@ export default function Loading() {
     <div className={styles.overlay}>
       <div className={styles.spinner}>
         <Image
-          src="/spiner.svg"
+          src="/icons/spiner.svg"
           alt="Spiner"
           width={120}
           height={120}

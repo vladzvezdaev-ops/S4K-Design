@@ -29,7 +29,12 @@ export const Footer = () => {
             <div className={styles.contacts}>
               <a href="tel:+48517365658" className={styles.contactItem}>
                 <span className={styles.icon}>
-                  <Image src="/phone.svg" alt="phone" width={30} height={30} />
+                  <Image
+                    src="/icons/phone.svg"
+                    alt="phone"
+                    width={30}
+                    height={30}
+                  />
                 </span>
                 <span>+(48) 517 365 658</span>
               </a>
@@ -38,7 +43,12 @@ export const Footer = () => {
                 className={styles.contactItem}
               >
                 <span className={styles.icon}>
-                  <Image src="/mail.svg" alt="email" width={30} height={20} />
+                  <Image
+                    src="/icons/mail.svg"
+                    alt="email"
+                    width={30}
+                    height={20}
+                  />
                 </span>
                 <span>slialina.design@gmail.com</span>
               </a>

@@ -21,8 +21,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({
   ],
   skills = ["UX / UI design", "&", "Brand design"],
   stats = ["3+ years experience", "20+ Brand projects", "7+ UX/UI projects"],
-  desktopImage = "/HeroMobile.png",
-  mobileImage = "/HeadHero.png",
+  desktopImage = "/pages/HeroMobile.png",
+  mobileImage = "/pages/HeadHero.png",
 }) => {
   return (
     <section className={styles.AboutMe}>
@@ -81,7 +81,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
               <ul className={styles.textListBottom}>
                 <li>
                   <Image
-                    src="/spiner.svg"
+                    src="/icons/spiner.svg"
                     alt="Spinner"
                     width={80}
                     height={80}

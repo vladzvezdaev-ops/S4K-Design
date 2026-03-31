@@ -9,17 +9,17 @@ import "./globals.scss";
 const satoshi = localFont({
   src: [
     {
-      path: "../shared/fonts/Satoshi-Regular.woff2",
+      path: "../shared/fonts/satoshi/Satoshi-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../shared/fonts/Satoshi-Medium.woff2",
+      path: "../shared/fonts/satoshi/Satoshi-Medium.woff2",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../shared/fonts/Satoshi-Black.woff2",
+      path: "../shared/fonts/satoshi/Satoshi-Black.woff2",
       weight: "900",
       style: "normal",
     },

@@ -11,14 +11,14 @@ export const ContactHero: React.FC<HeroProps> = () => {
       <div className={styles.heroWrapper}>
         <Image
           className={`${styles.heroImage} ${styles.imgMobile}`}
-          src="/HeroMobile.png"
+          src="/pages/HeroMobile.png"
           alt="Contact Mobile"
           fill
           priority
         />
         <Image
           className={`${styles.heroImage} ${styles.imgDesktop}`}
-          src="/HeadHero.png"
+          src="/pages/HeadHero.png"
           alt="Contact Desktop"
           fill
           priority

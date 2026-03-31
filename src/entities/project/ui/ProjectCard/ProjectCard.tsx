@@ -18,7 +18,7 @@ export const ProjectCard = ({ project, className }: ProjectCardProps) => {
 
         <Link href={link} className={styles.linkButton}>
           <Image
-            src="/burgerBtnClose.svg"
+            src="/icons/burgerBtnClose.svg"
             alt="Link Icon"
             width={40}
             height={40}

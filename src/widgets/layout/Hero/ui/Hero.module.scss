@@ -9,7 +9,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/HeroMobile.png");
+  background-image: url("/pages/HeroMobile.png");
   overflow: hidden;
 
   @media (orientation: landscape) and (max-height: 500px) {
@@ -56,7 +56,7 @@
   }
 
   @include tablet {
-    background-image: url("/HeadHero.png");
+    background-image: url("/pages/HeadHero.png");
 
     .container {
       justify-content: space-between;
