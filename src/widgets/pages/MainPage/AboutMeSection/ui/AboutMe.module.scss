@@ -103,6 +103,10 @@
     height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+    border: none;
+    outline: none;
+    transform: scale(1.02);
+    background-color: transparent;
   }
 }
 
@@ -111,6 +115,7 @@
   justify-content: center;
   gap: 12px;
   padding-bottom: 20px;
+  overflow: hidden;
 
   @include tablet {
     justify-content: flex-start;

@@ -7,12 +7,15 @@ import { Footer } from "@/widgets/layout/Footer";
 export const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
 
-  const isVladPage = pathname === "/vladyslav-zvezdaiev";
+  const normalizedPath = pathname?.toLowerCase() || "";
+  const isVladPage = normalizedPath.includes("vladyslav-zvezdaiev");
 
   return (
     <>
       {!isVladPage && <Header />}
+      
       <main>{children}</main>
+      
       {!isVladPage && <Footer />}
     </>
   );

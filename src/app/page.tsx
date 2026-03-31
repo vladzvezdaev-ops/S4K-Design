@@ -1,5 +1,5 @@
 import { FadeIn } from "@/shared/ui/Fade-in/FadeIn";
-import { AboutMe } from "@/widgets/pages/AboutMePage";
+import { AboutMe } from "@/widgets/pages/MainPage/AboutMeSection";
 import { DiscountSection } from "@/widgets/pages/MainPage/DiscountSection";
 import { Hero } from "@/widgets/layout/Hero";
 import { MyInstagram } from "@/widgets/pages/MainPage/MyInstagramSection";

@@ -70,10 +70,8 @@ const CustomCursor = () => {
 
     const move = (e: PointerEvent) => {
       if (!isVisible) setIsVisible(true);
-
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-
       const target = e.target as HTMLElement;
       const hovered = !!target.closest(
         `.${styles.card}, .${styles.homeBtn}, .${styles.socialLink}`,
@@ -107,7 +105,6 @@ const CustomCursor = () => {
         y: springY,
         opacity: isVisible ? 1 : 0,
       }}
-      transition={{ opacity: { duration: 0.2 } }}
     />
   );
 };
@@ -121,27 +118,39 @@ const TiltCard = ({
 }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const rotateX = useSpring(useTransform(y, [-150, 150], [25, -25]));
-  const rotateY = useSpring(useTransform(x, [-150, 150], [-25, 25]));
-
-  const stopProp = (e: React.PointerEvent) => e.stopPropagation();
+  const rotateX = useSpring(useTransform(y, [-100, 100], [15, -15]), {
+    stiffness: 150,
+    damping: 25,
+  });
+  const rotateY = useSpring(useTransform(x, [-100, 100], [-15, 15]), {
+    stiffness: 150,
+    damping: 25,
+  });
 
   return (
     <motion.div
       drag
       dragConstraints={constraintsRef}
-      onPointerDown={stopProp}
-      onPointerMove={(e) => {
+      dragElastic={0.1}
+      dragMomentum={true}
+      onMouseMove={(e) => {
         const rect = e.currentTarget.getBoundingClientRect();
         x.set(e.clientX - (rect.left + rect.width / 2));
         y.set(e.clientY - (rect.top + rect.height / 2));
       }}
-      onPointerLeave={() => {
+      onMouseLeave={() => {
         x.set(0);
         y.set(0);
       }}
       className={styles.card}
-      style={{ left: card.x, top: card.y, rotateX, rotateY }}
+      style={{
+        left: card.x,
+        top: card.y,
+        rotateX,
+        rotateY,
+        touchAction: "none",
+      }}
+      whileDrag={{ scale: 1.05, zIndex: 100 }}
     >
       <div className={styles.cardContent}>
         <h3>
@@ -157,9 +166,12 @@ const TiltCard = ({
 
 export const VladyslavSections = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const constraintsRef = useRef(null);
+  const constraintsRef = useRef<HTMLDivElement>(null);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
+    const timer = setTimeout(() => setIsReady(true), 200);
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -227,8 +239,7 @@ export const VladyslavSections = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       particles = [];
-      const isMobile = window.innerWidth < 768;
-      const spacing = isMobile ? 24 : 35;
+      const spacing = window.innerWidth < 768 ? 24 : 35;
       for (let y = 0; y < canvas.height; y += spacing) {
         for (let x = 0; x < canvas.width; x += spacing) {
           particles.push(new Particle(x, y));
@@ -256,8 +267,6 @@ export const VladyslavSections = () => {
     const handleDown = (e: PointerEvent) => {
       startPos = { x: e.clientX, y: e.clientY };
       isMoving = false;
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
     };
 
     const handleMove = (e: PointerEvent) => {
@@ -283,6 +292,7 @@ export const VladyslavSections = () => {
     window.addEventListener("resize", init);
 
     return () => {
+      clearTimeout(timer);
       cancelAnimationFrame(animationId);
       window.removeEventListener("pointerdown", handleDown);
       window.removeEventListener("pointermove", handleMove);
@@ -316,43 +326,44 @@ export const VladyslavSections = () => {
       <canvas ref={canvasRef} className={styles.canvas} />
 
       <div className={styles.centerContainer}>
-        <motion.div className={styles.content}>
+        <div className={styles.content}>
           <h1 className={styles.title}>WELCOME TO</h1>
           <h2 className={styles.subtitle}>VLADYSLAV’S WORKSPACE</h2>
-        </motion.div>
+        </div>
       </div>
 
       <Link href="/" className={styles.homeBtn}>
         BACK TO MAIN
       </Link>
 
-      {[
-        {
-          id: 1,
-          title: "Projects",
-          content: "Explore my digital universe and latest works.",
-          x: "10%",
-          y: "20%",
-        },
-        {
-          id: 2,
-          title: "Skills",
-          content:
-            "React, Next.js, Framer Motion, TypeScript, Sanity, Vercel, UX-UI Engineering.",
-          x: "65%",
-          y: "15%",
-        },
-        {
-          id: 3,
-          title: "Contact",
-          content:
-            "Available for high-end collaborations and innovative digital solutions.",
-          x: "40%",
-          y: "60%",
-        },
-      ].map((card) => (
-        <TiltCard key={card.id} card={card} constraintsRef={constraintsRef} />
-      ))}
+      {isReady &&
+        [
+          {
+            id: 1,
+            title: "Projects",
+            content: "Explore my digital universe and latest works.",
+            x: "10%",
+            y: "20%",
+          },
+          {
+            id: 2,
+            title: "Skills",
+            content:
+              "React, Next.js, Framer Motion, TypeScript, Sanity, Vercel, UX-UI Engineering.",
+            x: "65%",
+            y: "15%",
+          },
+          {
+            id: 3,
+            title: "Contact",
+            content:
+              "Available for high-end collaborations and innovative digital solutions.",
+            x: "40%",
+            y: "60%",
+          },
+        ].map((card) => (
+          <TiltCard key={card.id} card={card} constraintsRef={constraintsRef} />
+        ))}
 
       <div className={styles.socialsWrapper}>
         <div className={styles.socialsContainer}>
@@ -365,7 +376,6 @@ export const VladyslavSections = () => {
               href={link.url}
               target="_blank"
               className={styles.socialLink}
-              onPointerDown={(e) => e.stopPropagation()}
             >
               <div className={styles.linkEnergy}>
                 {[

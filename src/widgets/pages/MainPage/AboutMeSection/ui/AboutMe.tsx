@@ -104,7 +104,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
               src={desktopImage}
               alt="Designer Portrait Desktop"
               width={400}
-              height={400}
+              height={225}
               className={styles.AboutMeDesktopImage}
               priority
             />

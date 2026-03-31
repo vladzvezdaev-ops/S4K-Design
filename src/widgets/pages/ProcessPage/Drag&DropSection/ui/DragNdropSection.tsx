@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import styles from "./DragNdropSection.module.scss";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -13,11 +13,20 @@ const CARDS = [
 ];
 
 export const DragNdropSection = () => {
-  const constraintsRef = useRef(null);
+  const constraintsRef = useRef<HTMLDivElement>(null);
+
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsReady(true);
+    }, 150);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <section className={styles.container} ref={constraintsRef}>
-      <div className={styles.content}>
+    <section className={styles.container}>
+      <div className={styles.content} ref={constraintsRef}>
         <div className={styles.textColumn}>
           <div className={styles.paragraph}>
             <p>
@@ -40,38 +49,40 @@ export const DragNdropSection = () => {
           </div>
         </div>
 
-        {CARDS.map((card) => (
-          <motion.div
-            key={card.id}
-            drag
-            dragConstraints={constraintsRef}
-            dragMomentum={true}
-            dragTransition={{
-              power: 0.5,
-              timeConstant: 500,
-              modifyTarget: (target) => Math.round(target / 10) * 10,
-            }}
-            dragElastic={0.5}
-            whileDrag={{
-              scale: 1.1,
-              zIndex: 100,
-            }}
-            className={`${styles.card} ${card.className}`}
-          >
-            <div className={styles.iceEffect}>
-              <div className={styles.imageContainer}>
-                <Image
-                  src={card.src}
-                  alt="Portfolio Item"
-                  fill
-                  sizes="(max-width: 768px) 90px, 180px"
-                  className={styles.img}
-                  draggable={false}
-                />
+        {isReady &&
+          CARDS.map((card) => (
+            <motion.div
+              key={card.id}
+              drag
+              dragConstraints={constraintsRef}
+              dragMomentum={true}
+              dragTransition={{
+                power: 0.2,
+                timeConstant: 500,
+              }}
+              dragElastic={0.1}
+              whileDrag={{
+                scale: 1.1,
+                zIndex: 100,
+              }}
+              style={{ touchAction: "none" }}
+              className={`${styles.card} ${card.className}`}
+            >
+              <div className={styles.iceEffect}>
+                <div className={styles.imageContainer}>
+                  <Image
+                    src={card.src}
+                    alt="Portfolio Item"
+                    fill
+                    sizes="(max-width: 768px) 90px, 180px"
+                    className={styles.img}
+                    draggable={false}
+                    priority
+                  />
+                </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
       </div>
     </section>
   );

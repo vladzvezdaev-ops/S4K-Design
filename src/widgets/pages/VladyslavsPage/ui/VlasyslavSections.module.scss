@@ -11,6 +11,7 @@
   cursor: none !important;
   user-select: none;
 }
+
 .customCursor {
   position: fixed;
   top: 0;
@@ -25,7 +26,6 @@
   transform: translate(-50%, -50%);
   box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
   will-change: transform, width, height, background-color, opacity;
-
   transition:
     width 0.25s ease,
     height 0.25s ease,
@@ -96,6 +96,7 @@
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  cursor: none;
   &:hover {
     background: #00ffcc;
     color: #000;
@@ -120,9 +121,11 @@
   transform-style: preserve-3d;
   perspective: 1000px;
   user-select: none;
+  touch-action: none;
   -webkit-tap-highlight-color: transparent;
   backdrop-filter: url(#liquid-glass) blur(12px);
   -webkit-backdrop-filter: url(#liquid-glass) blur(12px);
+  will-change: transform, left, top;
 
   h3 {
     font-family: "Space Grotesk", sans-serif;
@@ -160,11 +163,13 @@
   display: flex;
   justify-content: center;
   z-index: 20;
+  pointer-events: none;
 }
 
 .socialsContainer {
   display: flex;
   gap: 80px;
+  pointer-events: auto;
 }
 
 .socialLink {
