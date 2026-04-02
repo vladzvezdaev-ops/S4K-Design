@@ -8,7 +8,7 @@ import { FadeIn } from "@/shared/ui/Fade-in/FadeIn";
 
 export const Footer = () => {
   return (
-    <FadeIn once={false}>
+    <FadeIn once={true}>
       <footer className={styles.footer}>
         <div className={styles.container}>
           <div className={styles.column}>

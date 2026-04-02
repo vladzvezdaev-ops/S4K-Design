@@ -52,7 +52,7 @@ const PortfolioPage = () => {
   return (
     <div>
       <PortfolioHero />
-      <FadeIn once={false} margin="0px 0px 300px 0px" amount={0.1}>
+      <FadeIn once={true} margin="0px 0px 300px 0px" amount={0.1}>
         <BrandPortfolioSection projects={brandProjects} />
       </FadeIn>
     </div>

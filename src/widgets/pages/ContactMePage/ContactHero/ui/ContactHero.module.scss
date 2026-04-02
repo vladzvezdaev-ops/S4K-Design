@@ -44,7 +44,7 @@
   @include text-h1;
   position: absolute;
   margin: 0;
-  color: #ffffff;
+  color: $fourth-white-color;
   font-weight: 900;
   text-transform: uppercase;
   font-size: clamp(40px, 10vw, 120px);

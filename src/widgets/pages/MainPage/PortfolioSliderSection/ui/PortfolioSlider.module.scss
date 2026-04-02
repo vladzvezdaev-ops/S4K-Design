@@ -21,7 +21,7 @@
 .title {
   font-size: 48px;
   font-weight: 500;
-  color: #fff;
+  color: $fourth-white-color;
   text-transform: uppercase;
 
   @include laptop {
@@ -43,7 +43,7 @@
 
   button {
     background: $fourth-white-color;
-    border: 1px solid #fff;
+    border: 1px solid $fourth-white-color;
     width: 28px;
     height: 28px;
     padding: 4px;
@@ -60,7 +60,7 @@
     }
 
     &:hover {
-      background: #000;
+      background: $primary-background-color;
 
       @include tablet {
         background: transparent;

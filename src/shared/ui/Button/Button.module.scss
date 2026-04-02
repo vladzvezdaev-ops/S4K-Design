@@ -20,16 +20,16 @@
 }
 
 .launch {
-  color: #ffffff;
+  color: $fourth-white-color;
   background:
     linear-gradient(to right, #ff4e2f, #ffb71b) padding-box,
     linear-gradient(to right, #9c230d, #f45e00, #ffb53f) border-box;
 
   &:hover {
-    color: #000000;
+    color: $primary-background-color;
     background:
-      linear-gradient(to right, #ffffff, #ffb71b) padding-box,
-      linear-gradient(to right, #ffffff, #ffb53f) border-box;
+      linear-gradient(to right, $fourth-white-color, #ffb71b) padding-box,
+      linear-gradient(to right, $fourth-white-color, #ffb53f) border-box;
 
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(#ff4e2f, 0.2);

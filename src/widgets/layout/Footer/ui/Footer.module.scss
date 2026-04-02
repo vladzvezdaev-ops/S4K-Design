@@ -55,7 +55,7 @@
     &:hover {
       transform: scale(1.05) translateX(5px);
 
-      color: #ffffff;
+      color: $fourth-white-color;
     }
   }
 }
@@ -110,7 +110,7 @@
   right: 30px;
   bottom: 30px;
   font-family: "Space Grotesk", sans-serif;
-  color: #fff;
+  color: $fourth-white-color;
   display: flex;
   gap: 8px;
   align-items: center;
@@ -127,17 +127,17 @@
 
   .name {
     font-weight: bold;
-    color: #fff;
+    color: $fourth-white-color;
     text-decoration: none;
     position: relative;
     display: inline-block;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-
-    animation: gentleNudge 5s ease-in-out infinite;
-
     transition:
       opacity 0.5s ease,
-      transform 0.5s ease;
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      color 0.5s ease;
+
+    animation: gentleNudge 5s ease-in-out infinite;
+    will-change: transform;
 
     &::before {
       content: attr(data-text);
@@ -155,14 +155,15 @@
 
       opacity: 0;
       transition: opacity 0.5s ease;
-      animation: rainbowFlow 2s linear infinite;
     }
 
     &:hover {
       transform: scale(1.1) rotate(2deg);
       color: transparent;
+
       &::before {
         opacity: 1;
+        animation: rainbowFlow 2s linear infinite;
       }
 
       text-decoration: underline;

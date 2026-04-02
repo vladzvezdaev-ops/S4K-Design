@@ -8,7 +8,7 @@ export default function ContactPage() {
   return (
     <div>
       <ContactHero />
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <ContactNav />
       </FadeIn>
     </div>

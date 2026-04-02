@@ -11,6 +11,7 @@ export const WhoIAmHi = () => {
           <Image
             src="/pages/HeroMobile.jpg"
             alt="Hi Photo"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             width={200}
             height={150}
             className={styles.photo}

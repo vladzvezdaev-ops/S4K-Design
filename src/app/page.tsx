@@ -52,16 +52,16 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <PortfolioSlider projects={projectsData} />
       </FadeIn>
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <AboutMe />
       </FadeIn>
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <MyInstagram />
       </FadeIn>
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <DiscountSection />
       </FadeIn>
     </main>

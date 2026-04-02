@@ -1,3 +1,6 @@
+@use "@/shared/styles/mixins" as *;
+@use "@/shared/styles/variables" as *;
+
 .iconWrapper {
   width: 24px;
   height: 24px;
@@ -5,10 +8,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
+  background: $fourth-white-color;
   border: none;
   cursor: pointer;
-  color: #000000;
+  color: $primary-background-color;
   transition: all 0.3s ease;
 
   .svgIcon {
@@ -16,8 +19,8 @@
   }
 
   &:hover {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: $primary-background-color;
+    color: $fourth-white-color;
 
     .svgIcon {
       transform: scale(1.1);

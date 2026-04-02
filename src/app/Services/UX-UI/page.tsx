@@ -53,19 +53,19 @@ const projectsData = [
 const UXUIPage = () => {
   return (
     <div>
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <HeroUXUi />
       </FadeIn>
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <BrandBenefitsSection />
       </FadeIn>
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <BrandProcessSection />
       </FadeIn>
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <PortfolioSlider title="UX/UI PORTFOLIO" projects={projectsData} />
       </FadeIn>
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <DiscountSection />
       </FadeIn>
     </div>

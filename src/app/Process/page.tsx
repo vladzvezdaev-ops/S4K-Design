@@ -12,16 +12,16 @@ const ProcessPage = () => {
   return (
     <section>
       <ProcessHero />
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <DragNdropSection />
       </FadeIn>
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <MattersSection />
       </FadeIn>
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <ProcessSection />
       </FadeIn>
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <DiscountSection />
       </FadeIn>
     </section>

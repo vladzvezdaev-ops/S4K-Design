@@ -8,7 +8,7 @@ const Sysmo = () => {
   return (
     <div>
       <SysmoHero />
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <SysmoPhotoSection />
       </FadeIn>
     </div>

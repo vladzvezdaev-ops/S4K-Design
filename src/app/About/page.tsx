@@ -11,16 +11,16 @@ const AboutPage = () => {
   return (
     <div>
       <WhoIAmHero />
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <WhoIAmHi />
       </FadeIn>
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <MyExperience />
       </FadeIn>
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <ValuesInspiration />
       </FadeIn>
-      <FadeIn once={false}>
+      <FadeIn once={true}>
         <DiscountSection />
       </FadeIn>
     </div>
