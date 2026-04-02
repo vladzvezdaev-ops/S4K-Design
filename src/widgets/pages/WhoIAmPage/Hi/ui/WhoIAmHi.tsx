@@ -9,7 +9,7 @@ export const WhoIAmHi = () => {
       <div className={styles.container}>
         <div className={styles.PhotoSection}>
           <Image
-            src="/pages/HeroMobile.png"
+            src="/pages/HeroMobile.jpg"
             alt="Hi Photo"
             width={200}
             height={150}

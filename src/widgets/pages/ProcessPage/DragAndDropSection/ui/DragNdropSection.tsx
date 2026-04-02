@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const CARDS = [
-  { id: 1, src: "/drag-and-drop/1dragndrop.png", className: styles.card1 },
-  { id: 2, src: "/drag-and-drop/2dragndrop.png", className: styles.card2 },
-  { id: 3, src: "/drag-and-drop/3dragndrop.png", className: styles.card3 },
-  { id: 4, src: "/drag-and-drop/4dragndrop.png", className: styles.card4 },
-  { id: 5, src: "/drag-and-drop/5dragndrop.png", className: styles.card5 },
+  { id: 1, src: "/drag-and-drop/1dragndrop.jpg", className: styles.card1 },
+  { id: 2, src: "/drag-and-drop/2dragndrop.jpg", className: styles.card2 },
+  { id: 3, src: "/drag-and-drop/3dragndrop.jpg", className: styles.card3 },
+  { id: 4, src: "/drag-and-drop/4dragndrop.jpg", className: styles.card4 },
+  { id: 5, src: "/drag-and-drop/5dragndrop.jpg", className: styles.card5 },
 ];
 
 export const DragNdropSection = () => {

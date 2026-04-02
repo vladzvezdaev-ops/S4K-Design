@@ -21,8 +21,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({
   ],
   skills = ["UX / UI design", "&", "Brand design"],
   stats = ["3+ years experience", "20+ Brand projects", "7+ UX/UI projects"],
-  desktopImage = "/pages/HeroMobile.png",
-  mobileImage = "/pages/HeadHero.png",
+  desktopImage = "/pages/HeroMobile.jpg",
+  mobileImage = "/pages/HeadHero.jpg",
 }) => {
   return (
     <section className={styles.AboutMe}>

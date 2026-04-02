@@ -46,7 +46,7 @@ export const ContactNav: React.FC = () => {
       <div className={styles.imgSection}>
         <div className={styles.imageWrapper}>
           <Image
-            src="/pages/HeroMobile.png"
+            src="/pages/HeroMobile.jpg"
             alt="Contact Me"
             fill
             className={styles.photo}

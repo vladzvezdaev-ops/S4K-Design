@@ -27,7 +27,7 @@ export const UXUiBenefits = () => {
     <section className={styles.wrapper}>
       <div className={styles.container}>
         <h2 className={styles.title}>BENEFITS</h2>
-        
+
         <div className={styles.contentGrid}>
           <div className={styles.item}>
             <h3>{data[0].title}</h3>
@@ -40,11 +40,11 @@ export const UXUiBenefits = () => {
           </div>
 
           <div className={styles.imageCenter}>
-            <Image 
-              src="/benefits/uxUiBenefits.png" 
-              alt="Phone" 
-              width={450} 
-              height={700} 
+            <Image
+              src="/benefits/uxUiBenefits.webp"
+              alt="Phone"
+              width={450}
+              height={700}
               className={styles.image}
               priority
             />

@@ -12,7 +12,7 @@ export const DiscountSection: React.FC<DiscountSectionProps> = () => {
       <h2 className={styles.title}>OFFER FROM ME</h2>
       <div className={styles.imgWrapper}>
         <Image
-          src="/pages/salesImage.png"
+          src="/pages/salesImage.webp"
           alt="DiscountPhoto"
           width={325}
           height={318}

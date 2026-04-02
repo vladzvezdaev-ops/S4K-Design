@@ -41,7 +41,7 @@ export const BrandBenefitsSection = () => {
 
           <div className={styles.imageCenter}>
             <Image
-              src="/benefits/brandBenefits.png"
+              src="/benefits/brandBenefits.webp"
               alt="Phone"
               width={450}
               height={700}

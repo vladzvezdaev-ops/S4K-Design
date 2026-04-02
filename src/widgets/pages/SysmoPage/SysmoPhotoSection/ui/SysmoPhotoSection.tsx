@@ -4,11 +4,11 @@ import Image from "next/image";
 import styles from "./SysmoPhotoSection.module.scss";
 
 const sysmoImages = [
-  { id: 1, src: "/sysmo/sysmo1.png", alt: "Sysmo overview phones" },
-  { id: 2, src: "/sysmo/sysmo2.png", alt: "Sysmo phones perspective" },
-  { id: 3, src: "/sysmo/sysmo3.png", alt: "Sysmo phones side view" },
-  { id: 4, src: "/sysmo/sysmo4.png", alt: "Sysmo web interface" },
-  { id: 5, src: "/sysmo/sysmo5.png", alt: "Sysmo features desktop" },
+  { id: 1, src: "/sysmo/sysmo1.jpg", alt: "Sysmo overview phones" },
+  { id: 2, src: "/sysmo/sysmo2.jpg", alt: "Sysmo phones perspective" },
+  { id: 3, src: "/sysmo/sysmo3.jpg", alt: "Sysmo phones side view" },
+  { id: 4, src: "/sysmo/sysmo4.jpg", alt: "Sysmo web interface" },
+  { id: 5, src: "/sysmo/sysmo5.jpg", alt: "Sysmo features desktop" },
 ];
 
 export const SysmoPhotoSection = () => {

@@ -9,10 +9,10 @@ const INSTAGRAM_URL =
 
 export const MyInstagram: React.FC = () => {
   const images = [
-    { src: "/myInst/MyInstagramImg1.png", alt: "InstImage1" },
-    { src: "/myInst/MyInstagramImg2.png", alt: "InstImage2" },
-    { src: "/myInst/MyInstagramImg3.png", alt: "InstImage3" },
-    { src: "/myInst/MyInstagramImg4.png", alt: "InstImage4" },
+    { src: "/myInst/MyInstagramImg1.jpg", alt: "InstImage1" },
+    { src: "/myInst/MyInstagramImg2.jpg", alt: "InstImage2" },
+    { src: "/myInst/MyInstagramImg3.jpg", alt: "InstImage3" },
+    { src: "/myInst/MyInstagramImg4.jpg", alt: "InstImage4" },
   ];
 
   return (
