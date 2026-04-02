@@ -14,24 +14,19 @@ export const ContactNav: React.FC = () => {
         <div className={styles.contactItems}>
           <a href="mailto:slialina.design@gmail.com" className={styles.item}>
             <span>slialina.design@gmail.com</span>
-            <button
+            <div
               className={styles.arrowBtn}
-              type="button"
               aria-label="Написати мені на пошту"
             >
               <BurgerIcon />
-            </button>
+            </div>
           </a>
 
           <a href="tel:+48517365658" className={styles.item}>
             <span>+(48) 517-365-658</span>
-            <button
-              className={styles.arrowBtn}
-              type="button"
-              aria-label="Зателефонувати мені"
-            >
+            <div className={styles.arrowBtn} aria-label="Зателефонувати мені">
               <BurgerIcon />
-            </button>
+            </div>
           </a>
         </div>
 

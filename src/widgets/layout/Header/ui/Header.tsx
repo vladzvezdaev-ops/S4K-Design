@@ -50,9 +50,9 @@ export const Header = () => {
             <Link href="/Contact">Contact</Link>
           </nav>
         </div>
-        <button onClick={toggleMenu} className={styles.burgerBtn} type="button">
+        <div onClick={toggleMenu} className={styles.burgerBtn}>
           <BurgerIcon />
-        </button>
+        </div>
       </div>
       <Modal isOpen={isOpen} onClose={toggleMenu}>
         <div className={styles.menuHeader}>
