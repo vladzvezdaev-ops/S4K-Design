@@ -28,13 +28,7 @@ export const MyInstagram: React.FC = () => {
             rel="noopener noreferrer"
             className={styles.imgItem}
           >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              width={170}
-              height={220}
-              priority
-            />
+            <Image src={img.src} alt={img.alt} width={170} height={220} />
           </a>
         ))}
       </div>

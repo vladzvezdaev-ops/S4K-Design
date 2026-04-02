@@ -63,7 +63,11 @@ export const PortfolioSlider = ({
         </Swiper>
 
         <div className={styles.navigation}>
-          <button className={`${styles.buttonIcon} swiper-button-prev-custom`}>
+          <button
+            className={`${styles.buttonIcon} swiper-button-prev-custom`}
+            type="button"
+            aria-label="Свайп слайдера вліво"
+          >
             <Image
               src="/icons/arrow.svg"
               alt="arrow"
@@ -73,7 +77,11 @@ export const PortfolioSlider = ({
             />
           </button>
 
-          <button className={`${styles.buttonIcon} swiper-button-next-custom`}>
+          <button
+            className={`${styles.buttonIcon} swiper-button-next-custom`}
+            type="button"
+            aria-label="Свайп слайдера вправо"
+          >
             <Image
               src="/icons/arrow.svg"
               alt="arrow"

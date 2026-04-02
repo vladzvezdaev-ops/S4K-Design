@@ -5,13 +5,13 @@ import styles from "./PortfolioHero.module.scss";
 
 export const PortfolioHero = () => {
   return (
-    <div className={styles.hero}>
+    <section className={styles.hero}>
       <h1 className={styles.title}>PORTFOLIO</h1>
       <div className={styles.btnWrapper}>
         <Button href="/Contact" className={styles.launchBtnHero}>
           Launch project
         </Button>
       </div>
-    </div>
+    </section>
   );
 };

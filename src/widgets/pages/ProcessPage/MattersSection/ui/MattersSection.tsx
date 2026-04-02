@@ -47,8 +47,8 @@ export const MattersSection = () => {
               src="/pages/HeroMobile.jpg"
               alt="Design perspective"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className={styles.photo}
-              priority
             />
           </div>
         </div>

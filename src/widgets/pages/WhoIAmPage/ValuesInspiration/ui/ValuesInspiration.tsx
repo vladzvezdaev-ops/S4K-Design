@@ -31,7 +31,7 @@ const principlesData = [
 
 export const ValuesInspiration = () => {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.titleContainer}>
         <h2 className={styles.titleTop}>MY VALUES </h2>
         <h2 className={styles.titleMiddle}>&</h2>
@@ -46,6 +46,6 @@ export const ValuesInspiration = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };

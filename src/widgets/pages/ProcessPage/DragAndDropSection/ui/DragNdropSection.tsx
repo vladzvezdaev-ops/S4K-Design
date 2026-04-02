@@ -77,7 +77,6 @@ export const DragNdropSection = () => {
                     sizes="(max-width: 768px) 90px, 180px"
                     className={styles.img}
                     draggable={false}
-                    priority
                   />
                 </div>
               </div>

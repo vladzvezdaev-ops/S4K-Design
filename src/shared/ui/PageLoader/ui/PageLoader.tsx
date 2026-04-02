@@ -30,7 +30,7 @@ export const PageLoader = () => {
           alt="Spiner"
           width={120}
           height={120}
-          priority
+          
         />
       </div>
     </div>

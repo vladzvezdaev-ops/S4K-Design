@@ -3,7 +3,6 @@ import { AboutMe } from "@/widgets/pages/MainPage/AboutMeSection";
 import { DiscountSection } from "@/widgets/pages/MainPage/DiscountSection";
 import { Hero } from "@/widgets/layout/Hero";
 import { MyInstagram } from "@/widgets/pages/MainPage/MyInstagramSection";
-export const dynamic = "force-dynamic";
 import { PortfolioSlider } from "@/widgets/pages/MainPage/PortfolioSliderSection";
 
 const projectsData = [
@@ -49,8 +48,7 @@ const projectsData = [
   },
 ];
 
-export default async function Home() {
-  await new Promise((res) => setTimeout(res, 1000));
+export default function Home() {
   return (
     <main>
       <Hero />

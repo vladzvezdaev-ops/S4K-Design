@@ -8,7 +8,7 @@ interface DiscountSectionProps {}
 
 export const DiscountSection: React.FC<DiscountSectionProps> = () => {
   return (
-    <div className={styles.DiscountSection}>
+    <section className={styles.DiscountSection}>
       <h2 className={styles.title}>OFFER FROM ME</h2>
       <div className={styles.imgWrapper}>
         <Image
@@ -16,7 +16,6 @@ export const DiscountSection: React.FC<DiscountSectionProps> = () => {
           alt="DiscountPhoto"
           width={325}
           height={318}
-          priority
           className={styles.imageMain}
         />
       </div>
@@ -31,6 +30,6 @@ export const DiscountSection: React.FC<DiscountSectionProps> = () => {
           </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

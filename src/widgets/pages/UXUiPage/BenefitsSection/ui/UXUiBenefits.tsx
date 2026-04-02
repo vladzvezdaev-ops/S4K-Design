@@ -46,7 +46,6 @@ export const UXUiBenefits = () => {
               width={450}
               height={700}
               className={styles.image}
-              priority
             />
           </div>
 

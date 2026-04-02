@@ -5,7 +5,7 @@ import styles from "./WhoIAmHi.module.scss";
 
 export const WhoIAmHi = () => {
   return (
-    <div className={styles.section}>
+    <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.PhotoSection}>
           <Image
@@ -34,6 +34,6 @@ export const WhoIAmHi = () => {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

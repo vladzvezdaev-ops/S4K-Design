@@ -14,16 +14,24 @@ export const ContactNav: React.FC = () => {
         <div className={styles.contactItems}>
           <a href="mailto:slialina.design@gmail.com" className={styles.item}>
             <span>slialina.design@gmail.com</span>
-            <div className={styles.arrowBtn}>
+            <button
+              className={styles.arrowBtn}
+              type="button"
+              aria-label="Написати мені на пошту"
+            >
               <BurgerIcon />
-            </div>
+            </button>
           </a>
 
           <a href="tel:+48517365658" className={styles.item}>
             <span>+(48) 517-365-658</span>
-            <div className={styles.arrowBtn}>
+            <button
+              className={styles.arrowBtn}
+              type="button"
+              aria-label="Зателефонувати мені"
+            >
               <BurgerIcon />
-            </div>
+            </button>
           </a>
         </div>
 
@@ -49,6 +57,7 @@ export const ContactNav: React.FC = () => {
             src="/pages/HeroMobile.jpg"
             alt="Contact Me"
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className={styles.photo}
           />
         </div>

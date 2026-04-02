@@ -2,7 +2,11 @@ import styles from "./Inst.module.scss";
 
 export const Inst = () => {
   return (
-    <button className={styles.iconWrapper} type="button">
+    <button
+      className={styles.iconWrapper}
+      type="button"
+      aria-label="Перейти в Instagram"
+    >
       <svg
         width="60"
         height="60"

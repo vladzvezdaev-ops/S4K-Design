@@ -67,6 +67,7 @@ export const Header = () => {
             onClick={toggleMenu}
             className={styles.closeBtn}
             type="button"
+            aria-label="Меню логотип"
           >
             <BurgerModalIcon />
           </button>
@@ -86,6 +87,7 @@ export const Header = () => {
               onClick={toggleServices}
               className={styles.mobileLink}
               type="button"
+              aria-label="Відкрити випадаюче меню"
             >
               Services
               <Image

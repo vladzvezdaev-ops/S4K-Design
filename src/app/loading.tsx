@@ -7,9 +7,11 @@ export default function Loading() {
       <div className={styles.spinner}>
         <Image
           src="/icons/spiner.svg"
-          alt="Spiner"
+          alt="Loading..."
           width={120}
           height={120}
+          priority
+          loading="eager"
           className={styles.spinerIcon}
         />
       </div>

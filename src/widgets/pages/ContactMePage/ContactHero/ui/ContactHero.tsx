@@ -14,14 +14,14 @@ export const ContactHero: React.FC<HeroProps> = () => {
           src="/pages/HeroMobile.jpg"
           alt="Contact Mobile"
           fill
-          priority
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
         <Image
           className={`${styles.heroImage} ${styles.imgDesktop}`}
           src="/pages/HeadHero.jpg"
           alt="Contact Desktop"
           fill
-          priority
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
         <div className={styles.overlay}>
           <h2 className={styles.title}>

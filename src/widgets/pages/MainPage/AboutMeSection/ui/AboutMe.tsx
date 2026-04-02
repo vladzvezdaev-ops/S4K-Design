@@ -106,7 +106,6 @@ export const AboutMe: React.FC<AboutMeProps> = ({
               width={400}
               height={225}
               className={styles.AboutMeDesktopImage}
-              priority
             />
             <Image
               src={mobileImage}
@@ -114,7 +113,6 @@ export const AboutMe: React.FC<AboutMeProps> = ({
               width={165}
               height={165}
               className={styles.AboutMeMobileImage}
-              priority
             />
           </div>
           <div className={styles.textDescriptionSection}>

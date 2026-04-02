@@ -14,8 +14,13 @@ export const ProjectCard = ({ project, className }: ProjectCardProps) => {
   return (
     <article className={`${styles.card} ${className || ""}`}>
       <div className={styles.imageWrapper}>
-        <img src={imageUrl} className={styles.image} alt="Project" />
-
+        <Image
+          src={imageUrl}
+          alt="Project preview"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className={styles.image}
+        />
         <Link href={link} className={styles.linkButton}>
           <Image
             src="/icons/burgerBtnClose.svg"

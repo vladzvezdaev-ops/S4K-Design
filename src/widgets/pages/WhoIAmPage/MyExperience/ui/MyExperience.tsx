@@ -4,7 +4,7 @@ import styles from "./MyExperience.module.scss";
 
 export const MyExperience = () => {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <h2 className={styles.title}>MY EXPERIENCE</h2>
       <div className={styles.listContainer}>
         <ul className={styles.list}>
@@ -18,6 +18,6 @@ export const MyExperience = () => {
           <li className={styles.listItem}>7+ projects</li>
         </ul>
       </div>
-    </div>
+    </section>
   );
 };

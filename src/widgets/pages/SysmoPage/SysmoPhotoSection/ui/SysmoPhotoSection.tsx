@@ -52,7 +52,6 @@ export const SysmoPhotoSection = () => {
                 alt={image.alt}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                priority={image.id === 1}
                 className={styles.image}
               />
             </div>
