@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={satoshi.variable} suppressHydrationWarning>
       <body className="antialiased" suppressHydrationWarning>
-        <PageLoader />
+        {/* <PageLoader /> */}
 
         <LayoutWrapper>{children}</LayoutWrapper>
 
