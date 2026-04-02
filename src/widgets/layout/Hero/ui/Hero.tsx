@@ -10,12 +10,22 @@ export const Hero = () => {
       <div className={styles.heroBgWrapper}>
         <Image
           src="/pages/HeadHero.jpg"
-          alt="Background"
+          alt="Background Desktop"
           fill
           priority
           fetchPriority="high"
           quality={75}
-          className={styles.heroImage}
+          className={`${styles.heroImage} ${styles.desktopOnly}`}
+          sizes="100vw"
+        />
+        <Image
+          src="/pages/HeroMobile.jpg"
+          alt="Background Mobile"
+          fill
+          priority
+          fetchPriority="high"
+          quality={75}
+          className={`${styles.heroImage} ${styles.mobileOnly}`}
           sizes="100vw"
         />
       </div>

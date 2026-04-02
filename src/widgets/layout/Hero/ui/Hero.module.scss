@@ -5,6 +5,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
+  min-height: 100svh;
   font-family: $font-main;
   background-color: $primary-background-color;
   overflow: hidden;
@@ -22,11 +23,19 @@
       object-fit: cover;
       object-position: center;
     }
-  }
 
-  @media (orientation: landscape) and (max-height: 500px) {
-    min-height: 100vh;
-    min-height: 100svh;
+    .mobileOnly {
+      display: block;
+      @include tablet {
+        display: none;
+      }
+    }
+    .desktopOnly {
+      display: none;
+      @include tablet {
+        display: block;
+      }
+    }
   }
 
   &::after {
@@ -52,27 +61,20 @@
     position: relative;
     z-index: 2;
     height: auto;
+    min-height: 100vh;
+    min-height: 100svh;
     margin: 0 auto;
     display: flex;
     max-width: 1660px;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 120px 22px 60px 22px;
 
     @include tablet {
       height: 100vh;
-    }
-  }
-
-  @include tablet {
-    .container {
       justify-content: space-between;
       padding: 110px 60px 150px 60px;
     }
-  }
-
-  @media (orientation: landscape) and (max-height: 500px) {
-    padding: 40px 22px 100px 22px;
   }
 
   @include laptop {
@@ -89,6 +91,7 @@
   flex-direction: column;
   text-transform: uppercase;
   color: $fourth-white-color;
+  margin-top: 30px;
   @include text-h1;
   font-weight: $fw-black;
   gap: 20px;
@@ -110,34 +113,19 @@
     }
   }
 
-  .titleTop {
-    @media (orientation: landscape) and (max-height: 500px) {
-      transform: translateY(-90px);
-    }
-  }
-
   @include tablet {
     height: 65%;
     justify-content: space-between;
     gap: 0;
-
     .titleTop {
       align-self: flex-end;
       text-align: right;
     }
-
     .titleBottom {
       align-self: flex-start;
       text-align: left;
       max-width: 60%;
     }
-  }
-
-  @include laptop {
-    height: 63%;
-  }
-  @include desktop {
-    height: 66%;
   }
 }
 
@@ -145,18 +133,18 @@
   position: absolute;
   display: flex;
   justify-content: flex-end;
-  bottom: 150px;
-  right: 30px;
-  margin-top: 0;
-  margin-bottom: 50px;
+  bottom: 200px;
+  right: 22px;
   z-index: 10;
 
   @include tablet {
     bottom: 120px;
     right: 60px;
-    margin-top: 0;
+  }
 
-    @media (orientation: landscape) and (max-height: 500px) {
+  @media (orientation: landscape) and (max-height: 500px) {
+    bottom: 20px;
+    @include tablet {
       bottom: 65px;
     }
   }
