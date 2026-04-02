@@ -18,7 +18,8 @@ export const ProjectCard = ({ project, className }: ProjectCardProps) => {
           src={imageUrl}
           alt="Project preview"
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          quality={65}
           className={styles.image}
         />
         <Link href={link} className={styles.linkButton}>

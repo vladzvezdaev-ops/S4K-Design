@@ -6,19 +6,27 @@
   width: 100%;
   min-height: 100vh;
   font-family: $font-main;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url("/pages/HeroMobile.jpg");
+  background-color: $primary-background-color;
   overflow: hidden;
 
+  .heroBgWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+
+    .heroImage {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
   @media (orientation: landscape) and (max-height: 500px) {
-    background-attachment: scroll;
-    background-position: center center;
-    background-size: cover;
     min-height: 100vh;
     min-height: 100svh;
-    width: 100%;
   }
 
   &::after {
@@ -36,12 +44,13 @@
         rgba($primary-background-color, 0) 100%
       );
     }
-
     pointer-events: none;
     z-index: 1;
   }
 
   .container {
+    position: relative;
+    z-index: 2;
     height: auto;
     margin: 0 auto;
     display: flex;
@@ -56,8 +65,6 @@
   }
 
   @include tablet {
-    background-image: url("/pages/HeadHero.jpg");
-
     .container {
       justify-content: space-between;
       padding: 110px 60px 150px 60px;
@@ -87,25 +94,7 @@
   gap: 20px;
   width: 100%;
 
-  .titleTop {
-    align-self: flex-start;
-    white-space: nowrap;
-    font-size: 40px;
-    @include tablet {
-      font-size: 80px;
-    }
-    @include laptop {
-      font-size: 110px;
-    }
-    @include desktop {
-      font-size: 130px;
-    }
-
-    @media (orientation: landscape) and (max-height: 500px) {
-      transform: translateY(-90px);
-    }
-  }
-
+  .titleTop,
   .titleBottom {
     align-self: flex-start;
     white-space: nowrap;
@@ -118,6 +107,12 @@
     }
     @include desktop {
       font-size: 130px;
+    }
+  }
+
+  .titleTop {
+    @media (orientation: landscape) and (max-height: 500px) {
+      transform: translateY(-90px);
     }
   }
 
@@ -141,7 +136,6 @@
   @include laptop {
     height: 63%;
   }
-
   @include desktop {
     height: 66%;
   }
@@ -158,18 +152,12 @@
   z-index: 10;
 
   @include tablet {
-    position: absolute;
     bottom: 120px;
     right: 60px;
     margin-top: 0;
-    z-index: 10;
 
     @media (orientation: landscape) and (max-height: 500px) {
       bottom: 65px;
     }
-  }
-
-  @include laptop {
-    right: 60px;
   }
 }

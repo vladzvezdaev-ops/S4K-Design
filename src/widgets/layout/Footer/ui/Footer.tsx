@@ -15,8 +15,12 @@ export const Footer = () => {
             <h3 className={styles.title}>PAGES</h3>
             <nav className={styles.nav}>
               <Link href="/">Home</Link>
-              <Link href="/Services/UX-UI">UX/UI</Link>
-              <Link href="/Services/Branding">Brand design</Link>
+              <Link href="/Services/UX-UI" prefetch={false}>
+                UX/UI
+              </Link>
+              <Link href="/Services/Branding" prefetch={false}>
+                Brand design
+              </Link>
               <Link href="/Portfolio">Portfolio</Link>
               <Link href="/About">About me</Link>
               <Link href="/Process">Process</Link>

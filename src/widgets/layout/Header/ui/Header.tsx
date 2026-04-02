@@ -36,13 +36,21 @@ export const Header = () => {
           <nav className={styles.nav}>
             <Link href="/About">About me</Link>
             <div className={styles.desktopDropdown}>
-              <Link href="/Services" className={styles.desktopDropdownTrigger}>
+              <Link
+                href="/Services"
+                className={styles.desktopDropdownTrigger}
+                prefetch={false}
+              >
                 Services
               </Link>
 
               <div className={styles.desktopDropdownMenu}>
-                <Link href="/Services/UX-UI">UX/UI Design</Link>
-                <Link href="/Services/Branding">Brand Identity design</Link>
+                <Link href="/Services/UX-UI" prefetch={false}>
+                  UX/UI Design
+                </Link>
+                <Link href="/Services/Branding" prefetch={false}>
+                  Brand Identity design
+                </Link>
               </div>
             </div>
             <Link href="/Portfolio">Portfolio</Link>
@@ -107,6 +115,7 @@ export const Header = () => {
                   href="/Services/UX-UI"
                   onClick={toggleMenu}
                   className={styles.subLink1}
+                  prefetch={false}
                 >
                   UX/UI Design
                 </Link>
@@ -114,6 +123,7 @@ export const Header = () => {
                   href="/Services/Branding"
                   onClick={toggleMenu}
                   className={styles.subLink2}
+                  prefetch={false}
                 >
                   Brand Identity design
                 </Link>
