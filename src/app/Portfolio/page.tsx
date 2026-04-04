@@ -19,7 +19,7 @@ const brandProjects: Project[] = [
   {
     id: "3",
     imageUrl: "/card/laptop1.jpg",
-    link: "/Sysmo",
+    link: "/projects/laptop1.jpg",
   },
   {
     id: "4",
@@ -29,7 +29,7 @@ const brandProjects: Project[] = [
   {
     id: "5",
     imageUrl: "/card/freePoint.jpg",
-    link: "/projects/freepoint",
+    link: "/Sysmo",
   },
   {
     id: "6",
