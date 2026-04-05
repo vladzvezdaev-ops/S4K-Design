@@ -6,36 +6,9 @@ import { PortfolioHero } from "@/widgets/pages/PortfolioPage/Hero";
 import { Project } from "@/entities/project/model/types";
 
 const brandProjects: Project[] = [
-  {
-    id: "1",
-    imageUrl: "/card/iphone1.jpg",
-    link: "/projects/iphone-app-1",
-  },
-  {
-    id: "2",
-    imageUrl: "/card/iphone2.jpg",
-    link: "/projects/iphone-app-2",
-  },
-  {
-    id: "3",
-    imageUrl: "/card/laptop1.jpg",
-    link: "/projects/laptop1.jpg",
-  },
-  {
-    id: "4",
-    imageUrl: "/card/laptop2.jpg",
-    link: "/projects/dashboard-v2",
-  },
-  {
-    id: "5",
-    imageUrl: "/card/freePoint.jpg",
-    link: "/Sysmo",
-  },
-  {
-    id: "6",
-    imageUrl: "/card/ber.jpg",
-    link: "/projects/ber-brand",
-  },
+  // --- BRAND (карточки без техники) ---
+  { id: "3", imageUrl: "/card/probnik.jpg", link: "/projects/probnik.jpg" },
+  { id: "6", imageUrl: "/card/ber.jpg", link: "/projects/ber-brand" },
   {
     id: "7",
     imageUrl: "/card/orangeCard.jpg",
@@ -46,6 +19,12 @@ const brandProjects: Project[] = [
     imageUrl: "/card/purpureCard.jpg",
     link: "/projects/purple-style",
   },
+
+  // --- UX/UI (карточки с техникой) ---
+  { id: "5", imageUrl: "/card/sysmoLaptop.jpg", link: "/Sysmo" },
+  { id: "1", imageUrl: "/card/iphone1.jpg", link: "/projects/iphone-app-1" },
+  { id: "2", imageUrl: "/card/iphone2.jpg", link: "/projects/iphone-app-2" },
+  { id: "4", imageUrl: "/card/laptop2.jpg", link: "/projects/dashboard-v2" },
 ];
 
 const PortfolioPage = () => {

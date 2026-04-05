@@ -18,8 +18,8 @@ const projectsData = [
   },
   {
     id: "3",
-    imageUrl: "/card/laptop1.jpg",
-    link: "/projects/laptop1.jpg",
+    imageUrl: "/card/probnik.jpg",
+    link: "/projects/probnik.jpg",
   },
   {
     id: "4",
@@ -28,7 +28,7 @@ const projectsData = [
   },
   {
     id: "5",
-    imageUrl: "/card/freePoint.jpg",
+    imageUrl: "/card/sysmoLaptop.jpg",
     link: "/Sysmo",
   },
   {

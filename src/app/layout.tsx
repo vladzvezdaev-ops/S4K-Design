@@ -41,9 +41,7 @@ export default function RootLayout({
     <html lang="en" className={satoshi.variable} suppressHydrationWarning>
       <body className="antialiased" suppressHydrationWarning>
         {/* <PageLoader /> */}
-
         <LayoutWrapper>{children}</LayoutWrapper>
-
         <SpeedInsights />
       </body>
     </html>

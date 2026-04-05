@@ -11,11 +11,8 @@ interface BrandPortfolioSectionProps {
 export const BrandPortfolioSection = ({
   projects,
 }: BrandPortfolioSectionProps) => {
-  const mobileFirstPart = projects.slice(0, 3);
-  const mobileSecondPart = projects.slice(0, 3);
-
-  const desktopFirstPart = projects.slice(0, 4);
-  const desktopSecondPart = projects.slice(4);
+  const brandPart = projects.slice(0, 4);
+  const uxUiPart = projects.slice(4);
 
   return (
     <section className={styles.section}>
@@ -25,12 +22,12 @@ export const BrandPortfolioSection = ({
 
         <div className={styles.projectsGrid}>
           <div className={styles.mobileOnlyContents}>
-            {mobileFirstPart.map((p) => (
+            {brandPart.map((p) => (
               <ProjectCard key={p.id} project={p} />
             ))}
           </div>
           <div className={styles.desktopOnlyContents}>
-            {desktopFirstPart.map((p) => (
+            {brandPart.map((p) => (
               <ProjectCard key={p.id} project={p} />
             ))}
           </div>
@@ -41,12 +38,12 @@ export const BrandPortfolioSection = ({
 
         <div className={styles.projectsGrid}>
           <div className={styles.mobileOnlyContents}>
-            {mobileSecondPart.map((p) => (
+            {uxUiPart.map((p) => (
               <ProjectCard key={p.id} project={p} />
             ))}
           </div>
           <div className={styles.desktopOnlyContents}>
-            {desktopSecondPart.map((p) => (
+            {uxUiPart.map((p) => (
               <ProjectCard key={p.id} project={p} />
             ))}
           </div>

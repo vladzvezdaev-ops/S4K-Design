@@ -46,19 +46,21 @@
   position: absolute;
   right: 30px;
   bottom: 230px;
+  z-index: 2;
 
   @include tablet {
     right: 50px;
+    bottom: 200px;
   }
 
   @include laptop {
     right: 50px;
-    bottom: 300px;
+    bottom: 200px;
   }
 
   @include desktop {
     right: 50px;
-    bottom: 420px;
+    bottom: 130px;
   }
 }
 
@@ -73,11 +75,11 @@
   @include tablet {
     font-size: 72px;
     left: 50px;
-    top: 300px;
+    top: 500px;
   }
 
   @include laptop {
     font-size: 128px;
-    top: 320px;
+    top: 400px;
   }
 }

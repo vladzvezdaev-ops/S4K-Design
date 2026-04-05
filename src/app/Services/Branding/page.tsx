@@ -5,34 +5,15 @@ import { BrandIdHero } from "@/widgets/pages/BrandIdentityPage/Hero";
 import { PortfolioSlider } from "@/widgets/pages/MainPage/PortfolioSliderSection";
 import { DiscountSection } from "@/widgets/pages/MainPage/DiscountSection";
 import { BrandProcessSection } from "@/widgets/pages/BrandIdentityPage/ProcessSection";
-import { UXUiBenefits } from "@/widgets/pages/UXUiPage/BenefitsSection";
+import { BrandBenefitsSection } from "@/widgets/pages/BrandIdentityPage/BenefitsSection";
 
 const projectsData = [
   {
-    id: "1",
-    imageUrl: "/card/iphone1.jpg",
-    link: "/projects/iphone-app-1",
-  },
-  {
-    id: "2",
-    imageUrl: "/card/iphone2.jpg",
-    link: "/projects/iphone-app-2",
-  },
-  {
     id: "3",
-    imageUrl: "/card/laptop1.jpg",
-    link: "/projects/laptop1.jpg",
+    imageUrl: "/card/probnik.jpg",
+    link: "/projects/probnik.jpg",
   },
-  {
-    id: "4",
-    imageUrl: "/card/laptop2.jpg",
-    link: "/projects/dashboard-v2",
-  },
-  {
-    id: "5",
-    imageUrl: "/card/freePoint.jpg",
-    link: "/Sysmo",
-  },
+
   {
     id: "6",
     imageUrl: "/card/ber.jpg",
@@ -57,7 +38,7 @@ const BrandingPage = () => {
         <BrandIdHero />
       </FadeIn>
       <FadeIn once={true}>
-        <UXUiBenefits />
+        <BrandBenefitsSection />
       </FadeIn>
       <FadeIn once={true}>
         <BrandProcessSection />

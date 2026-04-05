@@ -2,13 +2,9 @@
 @use "@/shared/styles/variables" as *;
 
 .MyInstagram {
-  padding: 120px 20px;
+  padding: 120px 40px;
   background-color: $primary-background-color;
   margin: 0 auto;
-
-  @include tablet {
-    padding: 120px 30px;
-  }
 }
 
 .title {

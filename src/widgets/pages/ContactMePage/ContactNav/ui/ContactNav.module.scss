@@ -23,6 +23,7 @@
 
 .navSection {
   flex: 1;
+  gap: 30px;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -30,16 +31,17 @@
 
   @include tablet {
     padding: 0;
+    gap: 50px;
   }
 }
 
 .contactItems {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
 
   @include tablet {
-    gap: 55px;
+    gap: 40px;
   }
 }
 
@@ -66,18 +68,34 @@
 .arrowBtn {
   width: 40px;
   height: 40px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  border: none;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: $secondary-orange-color;
+  color: $primary-background-color;
 
-  img,
-  svg {
-    width: 40px;
-    height: 40px;
-    transition: filter 0.3s ease;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+
+  .svgIcon {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background-color: $fourth-white-color;
+    color: $primary-background-color;
+    .svgIcon {
+      transform: scale(1.15);
+    }
+  }
+
+  &:active {
+    transform: scale(0.92);
   }
 }
 
