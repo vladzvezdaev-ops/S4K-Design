@@ -70,11 +70,14 @@
 
 .mobileTitle {
   display: block;
-  font-size: 32px;
   white-space: nowrap;
   @include text-h1;
-
+  font-size: 32px;
   font-weight: 500;
+
+  @include media-to(430) {
+    font-size: 20px;
+  }
 
   @include tablet {
     display: none;
