@@ -16,6 +16,11 @@
 
   @include laptop {
     padding: 100px 80px 300px 80px;
+    gap: 120;
+  }
+
+  @include desktop {
+    padding: 100px 80px 300px 80px;
     gap: 200;
   }
 }
