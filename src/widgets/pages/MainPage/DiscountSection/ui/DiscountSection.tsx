@@ -4,15 +4,25 @@ import Image from "next/image";
 import { Button } from "@/shared/ui/Button/Button";
 import styles from "./DiscountSection.module.scss";
 
-interface DiscountSectionProps {}
+interface DiscountSectionProps {
+  title?: string;
+  image?: string;
+  text?: string;
+  btnText?: string;
+}
 
-export const DiscountSection: React.FC<DiscountSectionProps> = () => {
+export const DiscountSection: React.FC<DiscountSectionProps> = ({
+  title = "OFFER FROM ME",
+  image = "/pages/salesImage.webp",
+  text = "If you already have a detailed analysis of your audience and competitive landscape, I move straight to implementation.",
+  btnText = "Launch project",
+}) => {
   return (
     <section className={styles.DiscountSection}>
-      <h2 className={styles.title}>OFFER FROM ME</h2>
+      <h2 className={styles.title}>{title}</h2>
       <div className={styles.imgWrapper}>
         <Image
-          src="/pages/salesImage.webp"
+          src={image}
           alt="DiscountPhoto"
           width={325}
           height={318}
@@ -20,13 +30,10 @@ export const DiscountSection: React.FC<DiscountSectionProps> = () => {
         />
       </div>
       <div className={styles.centerContainer}>
-        <p className={styles.textSection}>
-          If you already have a detailed analysis of your audience and
-          competitive landscape, I move straight to implementation.
-        </p>
+        <p className={styles.textSection}>{text}</p>
         <div className={styles.btnContainer}>
           <Button className={styles.launchBtn} href="/Contact">
-            Launch project
+            {btnText}
           </Button>
         </div>
       </div>

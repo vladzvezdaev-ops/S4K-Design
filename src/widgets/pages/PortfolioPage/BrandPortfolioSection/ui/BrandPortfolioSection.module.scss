@@ -31,6 +31,7 @@
   @include tablet {
     display: block;
     @include text-h2;
+        font-weight: 500;
     font-size: 56px;
     margin: 90px 0 55px;
     color: $fourth-white-color;

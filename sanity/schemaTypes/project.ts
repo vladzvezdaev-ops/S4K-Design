@@ -1,20 +1,24 @@
 import { defineField, defineType } from "sanity";
 
-export const projectType = defineType({
+export default defineType({
   name: "project",
-  title: "Проекти (Слайдер)",
+  title: "Проект (Карточка)",
   type: "document",
   fields: [
-    defineField({ name: "title", title: "Назва проекту", type: "string" }),
     defineField({
-      name: "imageUrl",
-      title: "Зображення",
+      name: "title",
+      title: "Название проекта",
+      type: "string",
+    }),
+    defineField({
+      name: "image",
+      title: "Обложка проекта",
       type: "image",
       options: { hotspot: true },
     }),
     defineField({
       name: "link",
-      title: "Посилання (наприклад: /projects/my-work)",
+      title: "Ссылка на проект",
       type: "string",
     }),
   ],
