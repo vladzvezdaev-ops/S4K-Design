@@ -44,7 +44,10 @@ export const Header = () => {
                 Services
               </Link>
 
-              <div className={styles.desktopDropdownMenu}>
+              <div
+                className={styles.desktopDropdownMenu}
+                suppressHydrationWarning
+              >
                 <Link href="/Services/UX-UI" prefetch={false}>
                   UX/UI Design
                 </Link>
