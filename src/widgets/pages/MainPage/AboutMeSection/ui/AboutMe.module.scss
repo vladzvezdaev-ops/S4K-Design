@@ -77,10 +77,6 @@
   font-weight: 500;
   margin-bottom: 40px;
 
-  @include media-to(430) {
-    font-size: 20px;
-  }
-
   @include tablet {
     display: none;
   }
