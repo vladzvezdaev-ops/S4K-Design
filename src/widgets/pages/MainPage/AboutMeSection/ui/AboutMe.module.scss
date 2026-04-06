@@ -71,9 +71,11 @@
 .mobileTitle {
   display: block;
   white-space: nowrap;
+  width: 160px;
   @include text-h1;
-  font-size: 32px;
+  font-size: 48px;
   font-weight: 500;
+  margin-bottom: 40px;
 
   @include media-to(430) {
     font-size: 20px;

@@ -98,8 +98,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({
           </div>
         </div>
         <div className={styles.imgSection}>
+          <h3 className={styles.mobileTitle}>{title}</h3>
           <div className={styles.imageContainer}>
-            <h3 className={styles.mobileTitle}>{title}</h3>
             <Image
               src={desktopImage}
               alt="Designer Portrait Desktop"
