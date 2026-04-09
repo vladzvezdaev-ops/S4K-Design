@@ -51,13 +51,9 @@ export default defineType({
       group: "portfolio",
       of: [
         {
-          type: "object",
-          name: "projectItem",
-          title: "Проект",
-          fields: [
-            defineField({ name: "image", type: "image", title: "Обложка" }),
-            defineField({ name: "link", type: "string", title: "Ссылка" }),
-          ],
+          type: "reference",
+          title: "Выбрать проект",
+          to: [{ type: "project" }],
         },
       ],
     }),

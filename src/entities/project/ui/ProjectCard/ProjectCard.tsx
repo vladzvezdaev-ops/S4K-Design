@@ -9,20 +9,29 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ project, className }: ProjectCardProps) => {
-  const { imageUrl, link = "#" } = project;
+  const { imageUrl, link, slug, title } = project;
+
+  let finalHref = "#";
+
+  if (link) {
+    finalHref = link;
+  } else if (slug) {
+    finalHref =
+      slug === "sysmo" || slug === "Sysmo" ? `/${slug}` : `/projects/${slug}`;
+  }
 
   return (
     <article className={`${styles.card} ${className || ""}`}>
       <div className={styles.imageWrapper}>
         <Image
           src={imageUrl}
-          alt="Project preview"
+          alt={title || "Project preview"}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          quality={65}
+          quality={75}
           className={styles.image}
         />
-        <Link href={link} className={styles.linkButton}>
+        <Link href={finalHref} className={styles.linkButton}>
           <Image
             src="/icons/burgerBtnClose.svg"
             alt="Link Icon"

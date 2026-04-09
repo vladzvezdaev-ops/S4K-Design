@@ -55,8 +55,8 @@ export const PortfolioSlider = ({
           loop={true}
           className={styles.slider}
         >
-          {projects.map((project) => (
-            <SwiperSlide key={project.id} className={styles.slide}>
+          {projects?.filter(Boolean).map((project, index) => (
+            <SwiperSlide key={project.id || index} className={styles.slide}>
               <ProjectCard project={project} />
             </SwiperSlide>
           ))}
