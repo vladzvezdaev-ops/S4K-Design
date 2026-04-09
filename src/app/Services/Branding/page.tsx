@@ -44,7 +44,7 @@ const BrandingPage = () => {
         <BrandProcessSection />
       </FadeIn>
       <FadeIn once={true}>
-        <PortfolioSlider title="BRAND PORTFOLIO" projects={projectsData} />
+        <PortfolioSlider title="" projects={projectsData} />
       </FadeIn>
       <FadeIn once={true}>
         <DiscountSection />

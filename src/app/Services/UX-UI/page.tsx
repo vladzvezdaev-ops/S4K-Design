@@ -41,10 +41,10 @@ const UXUIPage = () => {
         <UXUiBenefits />
       </FadeIn>
       <FadeIn once={true}>
-        <UXUiProcessSection />{" "}
+        <UXUiProcessSection />
       </FadeIn>
       <FadeIn once={true}>
-        <PortfolioSlider title="UX/UI PORTFOLIO" projects={projectsData} />
+        <PortfolioSlider title="" projects={projectsData} />
       </FadeIn>
       <FadeIn once={true}>
         <DiscountSection />

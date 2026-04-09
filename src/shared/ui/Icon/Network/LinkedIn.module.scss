@@ -11,7 +11,7 @@
   background: $fourth-white-color;
   border: none;
   cursor: pointer;
-  color: #000000;
+  color: $third-black-color;
   transition: all 0.3s ease;
 
   .svgIcon {
@@ -21,7 +21,7 @@
   }
 
   &:hover {
-    background-color: #000000;
+    background-color: $third-black-color;
     color: $fourth-white-color;
 
     .svgIcon {
