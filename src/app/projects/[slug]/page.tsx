@@ -2,7 +2,7 @@ import { PortableText } from "@portabletext/react";
 import { getProjectBySlug } from "@/shared/api/sanity/queries";
 import Image from "next/image";
 import { urlFor } from "../../../../sanity/lib/image";
-import styles from "./ProjectDetail.module.scss";
+import styles from "./ProjectPage.module.scss";
 
 const myCustomComponents = {
   types: {

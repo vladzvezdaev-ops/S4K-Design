@@ -1,0 +1,84 @@
+@import "@/shared/styles/_mixins.scss";
+
+.main {
+  padding: 80px 20px;
+  min-height: 100vh;
+  background-color: transparent;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.mainTitle {
+  font-family: $font-main;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 40px;
+  color: $fourth-white-color;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.paragraph {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.heading2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-top: 20px;
+  color: $fourth-white-color;
+}
+
+.imageContainer {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  &.small {
+    width: 30%;
+    align-self: center;
+  }
+
+  &.medium {
+    width: 60%;
+    align-self: center;
+  }
+
+  &.full {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    width: 100% !important;
+  }
+}
+
+.projectImage {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.5rem;
+  color: $secondary-orange-color;
+}
