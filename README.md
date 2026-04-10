@@ -1,36 +1,178 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎨 S4K Design Portfolio
 
-## Getting Started
+## 🔗 Live Links
+* **Live Website:** [s4k-design.vercel.app](https://s4k-design.vercel.app)
+* **Developer Portfolio:** [Vladyslav Zvezdaiev Profile](https://s4k-design.vercel.app/Vladyslav-zvezdaiev)
 
-First, run the development server:
+![Lighthouse Score 100](/public/readmemd/100rate.jpg)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Welcome to the official portfolio website for Sonya (S4K Design). This project is a highly optimized, dynamically driven web application tailored to showcase high-end design work, complete with seamless transitions, custom interactive elements, and a dedicated developer hub.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Vladyslav Zvezdaiev Developer Page](/public/readmemd/vladyslavPage.jpg)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Project Highlights
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This application is built for ultimate performance and ultimate client autonomy. It features 9 fully responsive, custom-crafted pages including Services, Process, and a specialized portal for the core developer, Vladyslav Zvezdaiev.
 
-## Learn More
+### 🛠️ Core Features
 
-To learn more about Next.js, take a look at the following resources:
+<details>
+<summary><b>✨ No-Code Content Management (Sanity CMS)</b></summary>
+<br>
+The client has complete control over their portfolio without needing to touch a single line of code. Below is a glimpse into the custom studio configured for this project.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Visual Page Builder & Constructor:**
+![Sanity Constructor](/public/readmemd/constructor1.jpg)
+![Sanity Constructor2](/public/readmemd/constructor2.jpg)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Main Page Content Editor:**
+![Sanity Main Page Editor](/public/readmemd/mainPageEditor.jpg)
 
-## Deploy on Vercel
+<ul>
+<li><b>Dynamic Sliders:</b> Easily swap out portfolio images, update project titles, and manage slider content directly from the Sanity Studio interface.</li>
+<li><b>Automated Routing:</b> Creating a new project in the CMS automatically generates a dedicated, SEO-friendly page with proper routing.</li>
+<li><b>Live Updates:</b> Content is updated in real-time, allowing the client to maintain a fresh and relevant portfolio effortlessly.</li>
+</ul>
+</details>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<details>
+<summary><b>🏗️ Feature-Sliced Design (FSD) Architecture</b></summary>
+<br>
+The codebase is structured using the Feature-Sliced Design methodology, ensuring maximum scalability and maintainability.
+<ul>
+<li><b>App:</b> Global settings, routing, and foundational providers.</li>
+<li><b>Pages:</b> Compositional layers for all 9 distinct routes.</li>
+<li><b>Widgets:</b> Complex standalone blocks like Headers, Footers, and Portfolio Sliders.</li>
+<li><b>Entities:</b> Business logic and UI components for specific domains (e.g., ProjectCard).</li>
+<li><b>Shared:</b> Reusable UI elements, API configurations, and global SCSS variables.</li>
+</ul>
+</details>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<details>
+<summary><b>⚡ Peak Performance (100/100 Lighthouse)</b></summary>
+<br>
+Optimized for the modern web. The site achieves perfect scores across the board.
+<ul>
+<li>Next.js Server-Side Rendering (SSR) and Static Site Generation (SSG).</li>
+<li>Optimized image loading and asset delivery.</li>
+<li>Seamless state management and component hydration.</li>
+</ul>
+</details>
+
+<details>
+<summary><b>👨‍💻 Dedicated Developer Portal</b></summary>
+<br>
+A unique ecosystem within the app. The `/Vladyslav-zvezdaiev` route serves as a dedicated space to showcase the engineering muscle behind the design, featuring complex interactive elements and structural deep dives.
+</details>
+
+<details>
+<summary><b>🎨 Advanced UI/UX Interactions</b></summary>
+<br>
+<ul>
+<li>Custom drag-and-drop zones.</li>
+<li>Smooth fade-in animations and transition overlays.</li>
+<li>Responsive design that adapts flawlessly from desktop landscape down to mobile.</li>
+</ul>
+</details>
+
+## 💻 Tech Stack
+
+* **Framework:** Next.js
+* **Language:** TypeScript
+* **Styling:** SCSS Modules
+* **CMS:** Sanity
+* **Architecture:** Feature-Sliced Design (FSD)
+
+## 📂 Project Structure
+
+```text
+s4k-design/
+├── public/
+│   ├── benefits/
+│   ├── card/
+│   ├── drag-and-drop/
+│   ├── icons/
+│   ├── myInst/
+│   ├── pages/
+│   ├── shared/
+│   └── sysmo/
+├── sanity/
+│   ├── lib/
+│   └── schemaTypes/
+├── src/
+│   ├── app/
+│   │   ├── About/
+│   │   ├── Contact/
+│   │   ├── Portfolio/
+│   │   ├── Process/
+│   │   ├── Services/
+│   │   │   ├── Branding/
+│   │   │   └── UX-UI/
+│   │   ├── studio/
+│   │   │   └── [[...tool]]/
+│   │   ├── Sysmo/
+│   │   └── Vladyslav-zvezdaiev/
+│   ├── entities/
+│   │   └── project/
+│   │       ├── model/
+│   │       └── ui/
+│   │           └── ProjectCard/
+│   ├── shared/
+│   │   ├── api/
+│   │   ├── config/
+│   │   ├── fonts/
+│   │   │   └── satoshi/
+│   │   ├── lib/
+│   │   ├── styles/
+│   │   └── ui/
+│   │       ├── Button/
+│   │       ├── Fade-in/
+│   │       ├── Icon/
+│   │       │   └── Network/
+│   │       ├── Modal/
+│   │       ├── PageLoader/
+│   │       │   └── ui/
+│   │       └── TransitionOverlay/
+│   └── widgets/
+│       ├── layout/
+│       │   ├── Footer/
+│       │   │   └── ui/
+│       │   ├── Header/
+│       │   │   └── ui/
+│       │   └── Hero/
+│       │       └── ui/
+│       └── pages/
+│           ├── BrandIdentityPage/
+│           │   ├── BenefitsSection/
+│           │   ├── Hero/
+│           │   └── ProcessSection/
+│           ├── ContactMePage/
+│           │   ├── ContactHero/
+│           │   └── ContactNav/
+│           ├── MainPage/
+│           │   ├── AboutMeSection/
+│           │   ├── DiscountSection/
+│           │   ├── MyInstagramSection/
+│           │   └── PortfolioSliderSection/
+│           ├── PortfolioPage/
+│           │   ├── BrandPortfolioSection/
+│           │   └── Hero/
+│           ├── ProcessPage/
+│           │   ├── DragAndDropSection/
+│           │   ├── Hero/
+│           │   ├── MattersSection/
+│           │   └── ProcessSection/
+│           ├── SysmoPage/
+│           │   ├── Hero/
+│           │   └── SysmoPhotoSection/
+│           ├── UXUiPage/
+│           │   ├── BenefitsSection/
+│           │   ├── Hero/
+│           │   └── ProcessSection/
+│           ├── VladyslavsPage/
+│           │   └── ui/
+│           └── WhoIAmPage/
+│               ├── Hero/
+│               ├── Hi/
+│               ├── MyExperience/
+│               └── ValuesInspiration/
